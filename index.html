@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prashanth Karanam // Spatial Portfolio Engine</title>
+    <meta name="description" content="Spatial portfolio featuring CodeCanvas AI IDE — Next-Gen Agentic AI-Native Browser IDE co-built with GPT-5.6.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-titanium">
+    <!-- Background Canvas Stage for Subtle 3D Particles -->
+    <canvas id="bg-canvas"></canvas>
+    
+    <!-- Ambient Overlay Grid -->
+    <div class="grid-overlay"></div>
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Navigation Header -->
+    <header class="app-header">
+        <div class="header-left">
+            <div class="brand-logo">
+                <span class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                </span>
+                <div class="brand-text">
+                    <span class="title">PRISM<span class="accent-dot">.</span></span>
+                    <span class="subtitle">SPATIAL PORTFOLIO ENGINE</span>
+                </div>
+            </div>
+        </div>
+
+        <nav class="header-nav">
+            <button class="nav-link active" data-view="spatial">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                3D Stage
+            </button>
+            <button class="nav-link" data-view="grid">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                Matrix Grid
+            </button>
+        </nav>
+
+        <div class="header-right">
+            <!-- AI Command Copilot Trigger -->
+            <button id="open-cmd-btn" class="command-trigger-btn" title="Open AI Command Copilot (Ctrl+K)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3zM6 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3z"/></svg>
+                <span>Copilot</span> <kbd>Ctrl+K</kbd>
+            </button>
+
+            <!-- Theme Selector -->
+            <select id="theme-select" class="theme-dropdown" title="Select Color Theme">
+                <option value="theme-titanium">Titanium Grey</option>
+                <option value="theme-gold">Onyx Gold</option>
+                <option value="theme-emerald">Cyber Emerald</option>
+                <option value="theme-slate">Deep Slate</option>
+            </select>
+
+            <!-- Sound Toggle -->
+            <button id="sound-toggle" class="icon-btn" title="Toggle Sound FX">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+            </button>
+
+            <button id="add-project-btn" class="primary-btn glow-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <span>Add Project</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-layout">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-badge">
+                <span class="status-indicator"></span>
+                <span>OPENAI BUILD WEEK 2026 SPOTLIGHT</span>
+            </div>
+            <h1 class="hero-title">
+                CODECANVAS & <span class="gradient-text">SPATIAL CREATIONS</span>
+            </h1>
+            <p class="hero-description">
+                Explore Prashanth Karanam's flagship AI project: <strong>CodeCanvas — Next-Gen Agentic AI-Native Browser IDE</strong>. Inspect the 5-step interactive workflow, flagship feature suite, and live GitHub Pages workspace.
+            </p>
+
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-value" id="stat-total-projects">1</span>
+                    <span class="stat-label">Spotlight Project</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-card">
+                    <span class="stat-value" id="stat-total-tech">7</span>
+                    <span class="stat-label">Tech Stacks</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-card">
+                    <span class="stat-value" id="stat-sandbox-count">100%</span>
+                    <span class="stat-label">Live GitHub Pages</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Matrix -->
+        <section class="skill-web-section">
+            <div class="skill-web-header">
+                <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg> Technology Stack Matrix</h3>
+                <span class="skill-hint">Click any tag to filter spotlight project</span>
+            </div>
+            <div class="skill-pills-container" id="skill-pills-matrix"></div>
+        </section>
+
+        <!-- Search Toolbar -->
+        <section class="controls-toolbar">
+            <div class="search-box">
+                <span class="search-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </span>
+                <input type="text" id="search-input" placeholder="Search CodeCanvas features, tags, or use-cases..." autocomplete="off">
+                <button id="clear-search-btn" class="clear-btn hidden">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- 3D Spatial Cards Stage Container -->
+        <section id="stage-viewport" class="stage-viewport view-spatial">
+            <!-- Dynamic project cards injected by JS -->
+            <div id="spatial-cards-container" class="spatial-cards-container"></div>
+            
+            <!-- Empty state fallback -->
+            <div id="empty-state" class="empty-state hidden">
+                <span class="empty-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                </span>
+                <h3>No Projects Found</h3>
+                <p>Try adjusting your search query or clicking tech stack pills above.</p>
+                <button class="secondary-btn" id="reset-filters-btn">Reset Search</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- AI COMMAND COPILOT PALETTE MODAL -->
+    <div id="cmd-modal" class="modal-overlay hidden">
+        <div class="modal-card cmd-card glass-panel">
+            <button class="close-modal-btn" id="close-cmd-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            
+            <div class="cmd-input-wrapper">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><polygon points="12 6 12 12 15 15"/></svg>
+                <input type="text" id="cmd-input" placeholder="Type a command (e.g., 'codecanvas', 'open demo', 'workflow')..." autocomplete="off">
+            </div>
+
+            <div class="cmd-suggestions">
+                <span class="suggestion-label">Quick Commands:</span>
+                <button class="cmd-chip" data-cmd="show CodeCanvas">CodeCanvas</button>
+                <button class="cmd-chip" data-cmd="open demo">GitHub Pages</button>
+                <button class="cmd-chip" data-cmd="add project">Deploy Project</button>
+            </div>
+
+            <div id="cmd-output-box" class="cmd-output-box">
+                <div class="cmd-response-text">> PRISM Copilot Ready. Type natural prompts to inspect CodeCanvas.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECT DETAIL DRAWER / MODAL -->
+    <div id="detail-modal" class="modal-overlay hidden">
+        <div class="modal-card detail-card glass-panel">
+            <button class="close-modal-btn" id="close-detail-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            
+            <div class="detail-header">
+                <div class="detail-badge-group">
+                    <span class="category-badge" id="modal-category">AI / ML</span>
+                    <span class="date-badge" id="modal-date">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        2026-03-20
+                    </span>
+                </div>
+                <h2 class="detail-title" id="modal-title">CodeCanvas — Next-Gen Agentic AI-Native Browser IDE</h2>
+                <p class="detail-subtitle" id="modal-subtitle">Zero-install agentic AI-native IDE co-built with GPT-5.6 featuring real-time auto-debugging and CyberBoard visual planning.</p>
+            </div>
+
+            <div class="modal-tabs">
+                <button class="tab-btn active" data-tab="tab-overview">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    Overview & Links
+                </button>
+                <button class="tab-btn" data-tab="tab-workflow">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    5-Step Workflow
+                </button>
+                <button class="tab-btn" data-tab="tab-features">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    Flagship Features
+                </button>
+                <button class="tab-btn" data-tab="tab-ghpages">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    Live GitHub Pages Site
+                </button>
+            </div>
+
+            <div class="modal-body-scroll">
+                <!-- TAB 1: OVERVIEW -->
+                <div id="tab-overview" class="tab-content active">
+                    <div class="preview-hero-box">
+                        <img id="modal-img" src="" alt="Project Preview Image" class="modal-preview-image">
+                    </div>
+
+                    <div class="info-section">
+                        <h4>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Live Workable Workspace & Repository
+                        </h4>
+                        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:0.75rem;">
+                            <a id="modal-link-demo" href="https://prashanth-karanam.github.io/CodeCanvas/" target="_blank" class="primary-btn glow-btn" style="text-decoration:none;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                Launch Live GitHub Pages Site
+                            </a>
+                            <a id="modal-link-repo" href="https://github.com/prashanth-karanam/CodeCanvas" target="_blank" class="secondary-btn" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                                GitHub Repository
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <h4>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                            Primary Use Case
+                        </h4>
+                        <p id="modal-usecase" class="highlight-text-box">Use case summary here...</p>
+                    </div>
+
+                    <div class="info-section">
+                        <h4>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="21" y1="10" x2="3" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="21" y1="18" x2="3" y2="18"/></svg>
+                            Detailed About Description
+                        </h4>
+                        <p id="modal-about" class="prose-text">In-depth project breakdown...</p>
+                    </div>
+
+                    <div class="info-section">
+                        <h4>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                            Tech Stack
+                        </h4>
+                        <div id="modal-tags" class="tag-cloud"></div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: THE 5-STEP WORKFLOW GUIDE -->
+                <div id="tab-workflow" class="tab-content">
+                    <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                        <h4 style="color:var(--text-main); margin-bottom:0.25rem;">📖 CodeCanvas 5-Step Development Loop</h4>
+                        <div style="display:grid; grid-template-columns:1fr; gap:0.75rem;">
+                            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem; align-items:flex-start;">
+                                <span style="background:rgba(56, 189, 248, 0.15); color:#38bdf8; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">01</span>
+                                <div>
+                                    <h5 style="color:#f8fafc; font-size:0.95rem; margin-bottom:0.2rem;">Write Code</h5>
+                                    <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Select your project files (<code>/index.html</code>, <code>/style.css</code>, <code>/script.js</code>) from the sidebar and write code directly inside the glowing editor.</p>
+                                </div>
+                            </div>
+                            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem; align-items:flex-start;">
+                                <span style="background:rgba(56, 189, 248, 0.15); color:#38bdf8; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">02</span>
+                                <div>
+                                    <h5 style="color:#f8fafc; font-size:0.95rem; margin-bottom:0.2rem;">Live Preview</h5>
+                                    <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Watch your code instantly render in the Live Preview panel on the right in real-time with hot-reloading.</p>
+                                </div>
+                            </div>
+                            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem; align-items:flex-start;">
+                                <span style="background:rgba(236, 72, 153, 0.15); color:#ec4899; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">03</span>
+                                <div>
+                                    <h5 style="color:#f8fafc; font-size:0.95rem; margin-bottom:0.2rem;">AI Auto-Debug (⚡ Auto-Debug)</h5>
+                                    <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Stuck on a syntax error or logic bug? Click the glowing <code>⚡ Auto-Debug</code> wand to have GPT-5.6 automatically fix your code!</p>
+                                </div>
+                            </div>
+                            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem; align-items:flex-start;">
+                                <span style="background:rgba(16, 185, 129, 0.15); color:#10b981; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">04</span>
+                                <div>
+                                    <h5 style="color:#f8fafc; font-size:0.95rem; margin-bottom:0.2rem;">Cyber Board (Visual Whiteboard)</h5>
+                                    <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Switch to the neon Whiteboard tab to draw full-screen architectural diagrams, UI mockups, and wireframes side-by-side with code.</p>
+                                </div>
+                            </div>
+                            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem; align-items:flex-start;">
+                                <span style="background:rgba(245, 158, 11, 0.15); color:#f59e0b; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">05</span>
+                                <div>
+                                    <h5 style="color:#f8fafc; font-size:0.95rem; margin-bottom:0.2rem;">Export</h5>
+                                    <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Export your finished masterpiece into a single standalone HTML file with a single click of a button.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 3: FLAGSHIP FEATURE SUITE -->
+                <div id="tab-features" class="tab-content">
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.85rem;">
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
+                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">🧠 1. Agentic AI Auto-Debug</h5>
+                            <p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">Powered by GPT-5.6. Automatically scans runtime errors and syntax traps to issue one-click automated patches directly to active editor files.</p>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
+                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">🎨 2. CyberBoard Sketchpad</h5>
+                            <p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">Integrated neon canvas with freehand brush, shapes (rectangles, circles, arrows, text), glow palettes, and HD image export for architecture wireframing.</p>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
+                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">🏆 3. Interactive Learning Path</h5>
+                            <p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">Built-in coding lessons ("Lesson 1: HTML Building Blocks") with task progress verification and real-time visual output feedback.</p>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
+                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">⚡ 4. Zero-Install Instant Preview</h5>
+                            <p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">100% in-browser client-side compilation engine. Zero heavy downloads, zero Docker setup, and zero local dependencies.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 4: LIVE GITHUB PAGES EMBED / FALLBACK -->
+                <div id="tab-ghpages" class="tab-content">
+                    <div id="ghpages-container" style="min-height:350px; display:flex; flex-direction:column; border:1px solid var(--glass-border); border-radius:8px; overflow:hidden;">
+                        <!-- Injected live GitHub Pages iframe or empty state fallback -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD NEW PROJECT CMS MODAL -->
+    <div id="add-modal" class="modal-overlay hidden">
+        <div class="modal-card cms-card glass-panel">
+            <button class="close-modal-btn" id="close-add-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div class="modal-header">
+                <h2>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    Add Project To Portfolio
+                </h2>
+                <p>Fill out the metadata to deploy additional projects into the portfolio.</p>
+            </div>
+
+            <form id="add-project-form" class="cms-form">
+                <div class="form-row duo">
+                    <div class="form-group">
+                        <label for="input-title">Project Title *</label>
+                        <input type="text" id="input-title" placeholder="e.g. CodeCanvas AI IDE" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-category">Category *</label>
+                        <select id="input-category" required>
+                            <option value="AI / ML">AI / ML</option>
+                            <option value="Fullstack">Fullstack</option>
+                            <option value="Tools & Developer IDE">Tools & Developer IDE</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row duo">
+                    <div class="form-group">
+                        <label for="input-date">Upload Date *</label>
+                        <input type="date" id="input-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-demo">GitHub Pages Live URL (Optional)</label>
+                        <input type="url" id="input-demo" placeholder="e.g. https://username.github.io/repo/">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="input-usecase">Primary Use Case *</label>
+                    <input type="text" id="input-usecase" placeholder="e.g. Zero-install agentic AI-native IDE in your browser." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="input-summary">Short Summary *</label>
+                    <input type="text" id="input-summary" placeholder="e.g. Next-Gen Agentic AI-Native Browser IDE co-built with GPT-5.6." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="input-about">Detailed Description *</label>
+                    <textarea id="input-about" rows="4" placeholder="Explain the problem solved, technical hurdles, architecture..." required></textarea>
+                </div>
+
+                <div class="form-row duo">
+                    <div class="form-group">
+                        <label for="input-image">Project Image URL (Optional)</label>
+                        <input type="url" id="input-image" placeholder="Leave empty for auto-generated graphic URL">
+                    </div>
+                    <div class="form-group">
+                        <label for="input-tags">Tech Stack Tags (Comma separated) *</label>
+                        <input type="text" id="input-tags" placeholder="e.g. React 19, GPT-5.6, Monaco Editor, TailwindCSS" required>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="secondary-btn" id="cancel-add-btn">Cancel</button>
+                    <button type="submit" class="primary-btn glow-btn">
+                        Deploy Project
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
