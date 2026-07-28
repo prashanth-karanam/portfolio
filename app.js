@@ -48,15 +48,18 @@ function generateProceduralGraphic(title, color1, color2) {
 
 class ProjectStore {
     constructor() {
-        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V12';
+        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V99';
+        // Clear all old legacy keys from localStorage to prevent old cached dates
+        try {
+            localStorage.clear();
+        } catch(e) {}
         this.projects = DEFAULT_PROJECTS;
         this.initStore();
     }
 
     async initStore() {
-        // Try fetching projects.json from server / GitHub Pages root first
         try {
-            const res = await fetch('projects.json');
+            const res = await fetch('projects.json?v=' + Date.now());
             if (res.ok) {
                 const jsonProjects = await res.json();
                 if (Array.isArray(jsonProjects) && jsonProjects.length > 0) {
@@ -74,25 +77,13 @@ class ProjectStore {
             console.log("Using cached/default projects dataset", e);
         }
 
-        const stored = localStorage.getItem(this.STORAGE_KEY);
-        if (stored) {
-            try {
-                this.projects = JSON.parse(stored);
-                this.enforceDateFix();
-                return;
-            } catch (e) {
-                console.error("Failed to parse local projects store", e);
-            }
-        }
         this.enforceDateFix();
         this.saveProjects(this.projects);
     }
 
     enforceDateFix() {
         this.projects.forEach(p => {
-            if (p.id === 'proj-codecanvas' || p.title.includes('CodeCanvas')) {
-                p.date = '2026-07-21';
-            }
+            p.date = '2026-07-21';
         });
     }
 
