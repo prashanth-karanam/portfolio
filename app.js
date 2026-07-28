@@ -14,7 +14,7 @@ const DEFAULT_PROJECTS = [
         summary: "A zero-latency, browser-native AI IDE unifying intelligent code generation, automatic error diagnostics, visual architectural whiteboard planning, and instant hot-reloading rendering.",
         about: "CodeCanvas unifies intelligent code generation, real-time visual architectural planning, and zero-latency browser rendering into a single, cohesive AI-Native Workspace. Built for OpenAI Build Week 2026 and powered by GPT-5.6 & Codex, CodeCanvas acts as an agentic partner that doesn't just suggest code—it understands, auto-diagnoses runtime console errors, and directly constructs full-stack web applications straight inside the browser with zero heavy downloads or local server dependencies.",
         usecase: "Instant browser-native software prototyping, agentic AI auto-debugging, visual architecture sketchpad, and zero-setup web application development.",
-        date: "2026-03-20",
+        date: "2026-07-21",
         category: "AI / ML",
         image: "codecanvas_thumbnail.jpg",
         tags: ["React 19", "GPT-5.6", "Vite", "Monaco Editor", "TailwindCSS", "TypeScript", "WebAssembly"],
