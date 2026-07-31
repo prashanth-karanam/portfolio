@@ -1386,3 +1386,68 @@ body {
         right: 1rem;
     }
 }
+
+/* ==========================================================================
+   LUNA 3B & MODERN PORTFOLIO ENHANCEMENTS
+   ========================================================================== */
+.luna-notice-box {
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: var(--radius-md);
+    padding: 1.2rem;
+    margin-top: 1rem;
+    box-shadow: 0 4px 20px rgba(56, 189, 248, 0.08);
+    transition: var(--transition-smooth);
+}
+
+.luna-notice-box:hover {
+    border-color: rgba(56, 189, 248, 0.5);
+    background: rgba(56, 189, 248, 0.12);
+}
+
+.modal-tabs {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--glass-border);
+    padding: 0.5rem 1.5rem 0 1.5rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+.modal-tabs .tab-btn {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--text-muted);
+    padding: 0.65rem 1rem;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    white-space: nowrap;
+    transition: var(--transition-fast);
+}
+
+.modal-tabs .tab-btn:hover {
+    color: var(--text-main);
+}
+
+.modal-tabs .tab-btn.active {
+    color: #38bdf8;
+    border-bottom-color: #38bdf8;
+}
+
+.tech-tag {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #94a3b8;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    display: inline-block;
+}
+

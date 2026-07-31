@@ -1,5 +1,29 @@
 [
   {
+    "id": "proj-luna",
+    "title": "Luna 3B — Local OS Intelligence & Dataset Autonomy",
+    "subtitle": "100% local 3B parameter AI OS brain stem fine-tuned for system commands with zero cloud latency.",
+    "summary": "Luna 3B is a fine-tuned 3B parameter model and co-located Python execution engine built to translate natural voice and text commands into real-time system actions (RAM cleanup, process control, Playwright CDP browser automation, network switching) with 0 API calls and 100% local GPU execution.",
+    "about": "Luna 3B is not another voice wrapper around ChatGPT or a conversational chatbot. It is a 3B parameter language model fine-tuned specifically to output structured JSON system action arrays. Coupled with a co-located Python backend (FastAPI, SecureExecutor, and FastPSPool), Luna acts directly on operating system calls. Its Dataset Autonomy Architecture features a 4-level execution cascade: Level 0 fast cache (PSPool ~5ms, 0 tokens), Level 1 local Ollama/Qwen 3B inference, Level 2 multi-step CDP automation, and Level 3 Circuit Breaker error recovery. Built on a dataset of 500+ SFT entries with zero numeric hallucination, strict schema consistency, and zero cloud dependency.",
+    "usecase": "Autonomous local system control, voice-triggered RAM & process optimization, Playwright CDP browser automation, and offline privacy-first computing.",
+    "date": "2026-07-29",
+    "category": "AI / ML",
+    "image": "luna_thumbnail.jpg",
+    "tags": [
+      "Qwen 3B",
+      "PyTorch / SFT",
+      "FastAPI",
+      "Playwright CDP",
+      "PowerShell",
+      "Local GPU",
+      "Python",
+      "JSONL Dataset"
+    ],
+    "demoUrl": "",
+    "repoUrl": "https://github.com/prashanth-karanam/Luna_antigravity_edition",
+    "downloadNotice": "Download links of both the Luna 3B LLM model weights and its Python tools backend will be released soon."
+  },
+  {
     "id": "proj-codecanvas",
     "title": "CodeCanvas — Next-Gen Agentic AI-Native Browser IDE",
     "subtitle": "Zero-install agentic AI-native IDE co-built with GPT-5.6 featuring real-time auto-debugging and CyberBoard visual planning.",

@@ -1,0 +1,36 @@
+# Dependencies & Build Outputs
+node_modules/
+dist/
+build/
+.cache/
+
+# OS & Editor Junk
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+*.tmp
+*.log
+.vscode/
+.idea/
+
+# Environment Files
+.env
+.env.local
+.env.development
+.env.production
+
+# Temporary Media & Scratch Files
+scratch/
+temp_images/
+raw_assets/
+*.psd
+*.ai
+*.mp4
+*.mov
+*.avi
+*.zip
+
+# Ensure Project Thumbnails Are Tracked
+!codecanvas_thumbnail.jpg
+!luna_thumbnail.jpg
