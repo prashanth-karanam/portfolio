@@ -28,7 +28,7 @@ const DEFAULT_PROJECTS = [
             "JSONL Dataset"
         ],
         demoUrl: "",
-        repoUrl: "https://github.com/prashanth-karanam/Luna-SummerCodex",
+        repoUrl: "https://github.com/prashanth-karanam/Luna-V3",
         downloadNotice: "Download links of both the Luna 3B LLM model weights and its Python tools backend will be released soon."
     },
     {
@@ -531,6 +531,32 @@ class PrismApp {
 
         const detailModal = document.getElementById('detail-modal');
         document.getElementById('close-detail-btn').onclick = () => detailModal.classList.add('hidden');
+
+        // YOUTUBE VIDEO MODAL HANDLERS
+        const videoModal = document.getElementById('video-modal');
+        const closeVideoBtn = document.getElementById('close-video-btn');
+        const videoContainer = document.getElementById('video-iframe-container');
+
+        const closeVideoModal = () => {
+            if (videoModal) videoModal.classList.add('hidden');
+            if (videoContainer) videoContainer.innerHTML = '';
+        };
+
+        if (closeVideoBtn) closeVideoBtn.onclick = closeVideoModal;
+        if (videoModal) {
+            videoModal.onclick = (e) => {
+                if (e.target === videoModal) closeVideoModal();
+            };
+        }
+
+        window.openVideoModal = (youtubeId, title) => {
+            this.sound.playClick();
+            if (videoModal && videoContainer) {
+                document.getElementById('video-modal-title').textContent = title || 'OpenAI Build Week Demo Video';
+                videoContainer.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1" style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+                videoModal.classList.remove('hidden');
+            }
+        };
     }
 
     getFilteredProjects() {
@@ -603,6 +629,15 @@ class PrismApp {
 
         container.querySelectorAll('.spatial-card').forEach(card => {
             card.onmouseenter = () => this.sound.playHover();
+            card.onmousemove = (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                card.style.transform = `perspective(1000px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg) translateY(-6px)`;
+            };
+            card.onmouseleave = () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+            };
             card.onclick = () => {
                 this.sound.playClick();
                 this.openDetailModal(card.dataset.id);

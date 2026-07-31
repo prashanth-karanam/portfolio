@@ -198,7 +198,7 @@
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                             Watch YouTube Demo Video
                         </a>
-                        <a href="https://github.com/prashanth-karanam/Luna-SummerCodex" target="_blank" class="secondary-btn">
+                        <a href="https://github.com/prashanth-karanam/Luna-V3" target="_blank" class="secondary-btn">
                             GitHub Repository
                         </a>
                     </div>
@@ -547,6 +547,19 @@
                     </button>
                 </div>
             </form>
+        </div>
+    <!-- YOUTUBE DEMO VIDEO OVERLAY MODAL -->
+    <div id="video-modal" class="modal-overlay hidden">
+        <div class="modal-card video-card glass-panel" style="max-width: 800px; width: 90%;">
+            <button class="close-modal-btn" id="close-video-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div class="modal-header">
+                <h3 id="video-modal-title" style="color:var(--text-main); font-family:var(--font-display);">OpenAI Build Week Demo Video</h3>
+            </div>
+            <div id="video-iframe-container" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:10px; margin-top:1rem; border:1px solid var(--glass-border);">
+                <!-- Dynamic YouTube iframe injected by JS -->
+            </div>
         </div>
     </div>
 
