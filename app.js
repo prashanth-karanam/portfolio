@@ -327,6 +327,7 @@ class PrismApp {
         this.currentViewMode = 'spatial';
         this.searchQuery = '';
         this.activeSkillTag = null;
+        this.activeEngineeringMethod = 'all';
 
         this.initUI();
         this.initTheme();
@@ -505,6 +506,16 @@ class PrismApp {
             if (isEnabled) this.sound.playClick();
         };
 
+        document.querySelectorAll('.eng-filter-pill').forEach(btn => {
+            btn.onclick = () => {
+                this.sound.playClick();
+                document.querySelectorAll('.eng-filter-pill').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                this.activeEngineeringMethod = btn.dataset.method;
+                this.renderProjects();
+            };
+        });
+
         const addModal = document.getElementById('add-modal');
         document.getElementById('add-project-btn').onclick = () => {
             this.sound.playClick();
@@ -525,6 +536,14 @@ class PrismApp {
     getFilteredProjects() {
         return this.store.projects.filter(p => {
             if (this.activeSkillTag && !p.tags.includes(this.activeSkillTag)) {
+                return false;
+            }
+
+            if (this.activeEngineeringMethod === 'handcrafted' && (!p.engineeringLabel || !p.engineeringLabel.includes('Hand-Crafted'))) {
+                return false;
+            }
+
+            if (this.activeEngineeringMethod === 'agentic' && (!p.engineeringLabel || !p.engineeringLabel.includes('Agentic'))) {
                 return false;
             }
 
@@ -557,6 +576,7 @@ class PrismApp {
                 <div class="card-media-box">
                     <img src="${p.image}" alt="${p.title}" class="card-image" loading="lazy">
                     <span class="card-category-badge">${p.category}</span>
+                    <span class="card-eng-badge">${p.engineeringLabel || '🛠️ Hand-Crafted Core'}</span>
                     <span class="card-date-badge">
                         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                         ${p.date}

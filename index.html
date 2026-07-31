@@ -118,16 +118,23 @@
             <div class="skill-pills-container" id="skill-pills-matrix"></div>
         </section>
 
-        <!-- Search Toolbar -->
+        <!-- Search Toolbar & Engineering Method Filter -->
         <section class="controls-toolbar">
             <div class="search-box">
                 <span class="search-icon">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                 </span>
-                <input type="text" id="search-input" placeholder="Search CodeCanvas features, tags, or use-cases..." autocomplete="off">
+                <input type="text" id="search-input" placeholder="Search Luna 3B, CodeCanvas, tags, or use-cases..." autocomplete="off">
                 <button id="clear-search-btn" class="clear-btn hidden">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </button>
+            </div>
+
+            <div class="engineering-filter-group" id="engineering-filter-group">
+                <span class="filter-label">Crafting Method:</span>
+                <button class="eng-filter-pill active" data-method="all">All Methods</button>
+                <button class="eng-filter-pill" data-method="handcrafted">🛠️ Hand-Crafted Core</button>
+                <button class="eng-filter-pill" data-method="agentic">⚡ Agentic AI Engineered</button>
             </div>
         </section>
 
@@ -144,6 +151,135 @@
                 <h3>No Projects Found</h3>
                 <p>Try adjusting your search query or clicking tech stack pills above.</p>
                 <button class="secondary-btn" id="reset-filters-btn">Reset Search</button>
+            </div>
+        </section>
+
+        <!-- OpenAI Build Week 2026 Spotlight & Submissions Section -->
+        <section class="hackathon-showcase-section">
+            <div class="hackathon-header">
+                <div class="hackathon-badge">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+                    <span>OPENAI BUILD WEEK 2026 HACKATHON</span>
+                </div>
+                <h2>OpenAI Build Week Submissions & Video Demos</h2>
+                <p>
+                    OpenAI Build Week is a global sprint where developers construct next-gen agentic applications. From my repositories, I submitted two flagship applications: <strong>CodeCanvas Agentic IDE</strong> and <strong>Luna v3 Local Intelligence OS</strong>. Watch the official video demonstrations below.
+                </p>
+            </div>
+
+            <div class="hackathon-grid">
+                <div class="hackathon-card glass-panel">
+                    <div class="hackathon-card-header">
+                        <span class="sub-badge">Submission 1</span>
+                        <span class="sub-date">Build Week 2026</span>
+                    </div>
+                    <h3>CodeCanvas — Agentic AI-Native IDE</h3>
+                    <p>Zero-install browser IDE co-built with GPT-5.6 featuring real-time console auto-debugging and CyberBoard visual whiteboard.</p>
+                    <div class="hackathon-actions">
+                        <a href="https://youtu.be/U5va0qWt1Dc?si=3xpzYX8EiTl4M-EZ" target="_blank" class="primary-btn glow-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            Watch YouTube Demo Video
+                        </a>
+                        <a href="https://github.com/prashanth-karanam/CodeCanvas" target="_blank" class="secondary-btn">
+                            GitHub Repository
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hackathon-card glass-panel">
+                    <div class="hackathon-card-header">
+                        <span class="sub-badge alt">Submission 2</span>
+                        <span class="sub-date">2026-07-31</span>
+                    </div>
+                    <h3>Luna v3 / Luna 3B — Local OS Assistant</h3>
+                    <p>100% offline 3B parameter model and Python backend executing RAM optimization, browser CDP automation, and system diagnostics.</p>
+                    <div class="hackathon-actions">
+                        <a href="https://youtu.be/PIV8i_lnrgU?si=BHkIlId4xUnj-3FC" target="_blank" class="primary-btn glow-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            Watch YouTube Demo Video
+                        </a>
+                        <a href="https://github.com/prashanth-karanam/Luna_antigravity_edition" target="_blank" class="secondary-btn">
+                            GitHub Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Developer Skill Radar & Mastery Quest Tree -->
+        <section class="skills-quest-section">
+            <div class="skills-quest-header">
+                <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Developer Mastery & Skill Evolution Quest Tree</h3>
+                <p>Tracking active proficiencies alongside upcoming full-stack & systems engineering milestones.</p>
+            </div>
+
+            <div class="quest-tree-grid">
+                <!-- UNLOCKED PROFICIENCIES -->
+                <div class="quest-card unlocked glass-panel">
+                    <div class="quest-status-header">
+                        <span class="quest-badge unlocked">🟢 UNLOCKED PROFICIENCIES</span>
+                    </div>
+                    <ul class="quest-list">
+                        <li>
+                            <div class="quest-item-title">
+                                <strong>Python Backend & Systems Automation</strong>
+                                <span class="level-pill">Active Mastery</span>
+                            </div>
+                            <p>FastAPI, PowerShell IPC, Process Telemetry, Playwright CDP, PyTorch SFT Datasets.</p>
+                        </li>
+                        <li>
+                            <div class="quest-item-title">
+                                <strong>Data Structures & Algorithms (DSA)</strong>
+                                <span class="level-pill">Easy-Medium Level</span>
+                            </div>
+                            <p>Arrays, Hash Maps, Recursion, Two-Pointers, Binary Search, Sliding Window.</p>
+                        </li>
+                        <li>
+                            <div class="quest-item-title">
+                                <strong>Agentic AI & Prompt Engineering</strong>
+                                <span class="level-pill">Advanced</span>
+                            </div>
+                            <p>JSON Schema Enforcement, GBNF Grammars, Synthetic Dataset Generation, Local LLM Cascades.</p>
+                        </li>
+                        <li>
+                            <div class="quest-item-title">
+                                <strong>Spatial Web & Frontend Design</strong>
+                                <span class="level-pill">Production</span>
+                            </div>
+                            <p>Vanilla CSS Design Tokens, Glassmorphism, 3D Particle Canvas Engine, Responsive UIs.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- FUTURE LOCKED MILESTONES -->
+                <div class="quest-card locked glass-panel">
+                    <div class="quest-status-header">
+                        <span class="quest-badge locked">🔒 FUTURE MILESTONE QUESTS</span>
+                    </div>
+                    <ul class="quest-list">
+                        <li>
+                            <div class="quest-item-title">
+                                <strong>Advanced Graph DSA & Dynamic Programming</strong>
+                                <span class="level-pill locked">Locked Quest</span>
+                            </div>
+                            <p>Graph Traversals (BFS/DFS), Shortest Path (Dijkstra), DP Memoization & Tabulation.</p>
+                        </li>
+                        <li>
+                            <div class="quest-item-title">
+                                <strong>Low-Level C++ / Rust & Custom GPU Kernels</strong>
+                                <span class="level-pill locked">Locked Quest</span>
+                            </div>
+                            <p>Custom CUDA C++ kernels, Rust FFI bindings, zero-copy memory buffers, llama.cpp extensions.</p>
+                        </li>
+                        <li>
+                            <div class="quest-item-title">
+                                <strong>Full-Stack Cloud Infrastructure & Distributed Orchestration</strong>
+                                <span class="level-pill locked">Locked Quest</span>
+                            </div>
+                            <p>Docker containerization, Kubernetes cluster orchestration, Redis pub-sub, WebSockets.</p>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
     </main>
