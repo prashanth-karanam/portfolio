@@ -1728,4 +1728,55 @@ body {
     margin: 0;
 }
 
+/* Skill Progress Bars & Ticker Styling */
+.skill-progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    margin: 0.35rem 0 0.45rem 0;
+    overflow: hidden;
+}
+
+.skill-progress-bar.locked {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 1s ease-in-out;
+}
+
+.progress-fill.emerald { background: linear-gradient(90deg, #10b981, #34d399); }
+.progress-fill.cyan { background: linear-gradient(90deg, #0284c7, #38bdf8); }
+.progress-fill.violet { background: linear-gradient(90deg, #8b5cf6, #c084fc); }
+.progress-fill.gold { background: linear-gradient(90deg, #d97706, #facc15); }
+.progress-fill.muted { background: rgba(148, 163, 184, 0.3); }
+
+.ticker-content {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.ticker-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.ticker-dot.cyan { background: #38bdf8; box-shadow: 0 0 8px #38bdf8; }
+.ticker-dot.gold { background: #facc15; box-shadow: 0 0 8px #facc15; }
+.ticker-dot.emerald { background: #10b981; box-shadow: 0 0 8px #10b981; }
+.ticker-dot.violet { background: #c084fc; box-shadow: 0 0 8px #c084fc; }
+
+
 
