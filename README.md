@@ -16,7 +16,7 @@ OpenAI Build Week is a global sprint where developers build next-gen agentic app
    - 💻 **GitHub Repo**: [https://github.com/prashanth-karanam/CodeCanvas](https://github.com/prashanth-karanam/CodeCanvas)
 2. **Luna v3 / Luna 3B — Local OS Assistant** (Submission 2)
    - 📺 **Watch YouTube Demo**: [https://youtu.be/PIV8i_lnrgU](https://youtu.be/PIV8i_lnrgU?si=BHkIlId4xUnj-3FC)
-   - 💻 **GitHub Repo**: [https://github.com/prashanth-karanam/Luna_antigravity_edition](https://github.com/prashanth-karanam/Luna_antigravity_edition)
+   - 💻 **GitHub Repo**: [https://github.com/prashanth-karanam/Luna-SummerCodex](https://github.com/prashanth-karanam/Luna-SummerCodex)
 
 ---
 

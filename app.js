@@ -28,7 +28,7 @@ const DEFAULT_PROJECTS = [
             "JSONL Dataset"
         ],
         demoUrl: "",
-        repoUrl: "https://github.com/prashanth-karanam/Luna_antigravity_edition",
+        repoUrl: "https://github.com/prashanth-karanam/Luna-SummerCodex",
         downloadNotice: "Download links of both the Luna 3B LLM model weights and its Python tools backend will be released soon."
     },
     {
