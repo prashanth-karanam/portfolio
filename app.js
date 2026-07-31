@@ -1020,11 +1020,84 @@ class PrismApp {
 
         const allTags = new Set();
         this.store.projects.forEach(p => p.tags.forEach(t => allTags.add(t)));
-        document.getElementById('stat-total-tech').textContent = allTags.size;
+        document.getElementById('stat-total-tech').textContent = allTags.size + '+';
+
+        // Cloud APIs = 0 (always, Luna is local-first)
+        const sandboxEl = document.getElementById('stat-sandbox-count');
+        if (sandboxEl) sandboxEl.textContent = '0';
     }
+}
+
+/* ============================================================
+   SCROLL REVEAL SYSTEM — IntersectionObserver based
+   ============================================================ */
+function initScrollReveal() {
+    const reveals = document.querySelectorAll('[data-reveal]');
+    const stagger = document.querySelectorAll('[data-reveal-stagger]');
+
+    const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+    reveals.forEach(el => revealObs.observe(el));
+
+    const staggerObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    stagger.forEach(el => staggerObs.observe(el));
+}
+
+/* ============================================================
+   SCROLL PROGRESS BAR
+   ============================================================ */
+function initScrollProgress() {
+    const bar = document.getElementById('scroll-progress-bar');
+    if (!bar) return;
+    window.addEventListener('scroll', () => {
+        const scrollPct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+        bar.style.transform = `scaleX(${Math.min(scrollPct, 1)})`;
+    }, { passive: true });
+}
+
+/* ============================================================
+   HEADER SCROLL CLASS
+   ============================================================ */
+function initHeaderScroll() {
+    const header = document.querySelector('.app-header');
+    if (!header) return;
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+}
+
+/* ============================================================
+   KINETIC HERO TEXT — word-by-word glow on load
+   ============================================================ */
+function initKineticHero() {
+    const desc = document.querySelector('.hero-description');
+    if (!desc) return;
+    // Already styled statically; just do a simple blur-in reveal on load
+    setTimeout(() => {
+        desc.style.opacity = '1';
+        desc.style.transform = 'none';
+    }, 600);
 }
 
 // Initialize on DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
     window.prismApp = new PrismApp();
+    initScrollReveal();
+    initScrollProgress();
+    initHeaderScroll();
+    initKineticHero();
 });
+
