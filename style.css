@@ -892,11 +892,7 @@ body {
     transition: transform 0.6s var(--ease-out);
 }
 
-/* 3D spatial offsets for visual depth */
-.view-spatial .spatial-card:nth-child(3n+1) { transform: translateZ(12px) rotateY(-1.5deg); }
-.view-spatial .spatial-card:nth-child(3n+2) { transform: translateZ(32px) rotateY(0deg); }
-.view-spatial .spatial-card:nth-child(3n+3) { transform: translateZ(8px)  rotateY(1.5deg); }
-
+/* 3D spatial offsets removed — tilt is now driven purely by JS CSS vars */
 .view-grid .spatial-cards-container,
 .view-grid .spatial-card { transform: none !important; }
 
@@ -930,8 +926,28 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    transition: border-color 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
-    transform-origin: center center;
+    /* Separate transitions: border/shadow animate smoothly; transform driven by JS RAF */
+    transition: border-color 0.3s var(--ease-smooth),
+                box-shadow 0.3s var(--ease-smooth);
+    transform: perspective(1000px)
+               rotateX(var(--tilt-x, 0deg))
+               rotateY(var(--tilt-y, 0deg));
+    will-change: transform;
+    transform-style: preserve-3d;
+}
+
+/* When JS is actively tilting, use a short ease for smoothness */
+.spatial-card.tilting {
+    transition: border-color 0.3s var(--ease-smooth),
+                box-shadow 0.3s var(--ease-smooth),
+                transform 0.08s linear;
+}
+
+/* When mouse leaves, spring back with a nice ease */
+.spatial-card:not(.tilting) {
+    transition: border-color 0.3s var(--ease-smooth),
+                box-shadow 0.3s var(--ease-smooth),
+                transform 0.45s var(--ease-out);
 }
 
 /* Shimmer border on hover */
@@ -958,7 +974,7 @@ body {
     box-shadow: 0 0 0 1px rgba(var(--accent-rgb), 0.08),
                 0 20px 50px rgba(0,0,0,0.55),
                 0 0 30px rgba(var(--accent-rgb), 0.08);
-    z-index: 10;
+    /* NO transform here — JS handles it via --tilt-x/--tilt-y */
 }
 
 .card-media-box {

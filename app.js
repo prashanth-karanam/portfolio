@@ -629,15 +629,28 @@ class PrismApp {
 
         container.querySelectorAll('.spatial-card').forEach(card => {
             card.onmouseenter = () => this.sound.playHover();
+
+            let rafId = null;
             card.onmousemove = (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                card.style.transform = `perspective(1000px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg) translateY(-6px)`;
+                if (rafId) return; // throttle to one update per frame
+                rafId = requestAnimationFrame(() => {
+                    const rect = card.getBoundingClientRect();
+                    const x = (e.clientX - rect.left - rect.width  / 2) / (rect.width  / 2);
+                    const y = (e.clientY - rect.top  - rect.height / 2) / (rect.height / 2);
+                    card.style.setProperty('--tilt-x', `${(y * -6).toFixed(2)}deg`);
+                    card.style.setProperty('--tilt-y', `${(x *  6).toFixed(2)}deg`);
+                    card.classList.add('tilting');
+                    rafId = null;
+                });
             };
+
             card.onmouseleave = () => {
-                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+                if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+                card.style.setProperty('--tilt-x', '0deg');
+                card.style.setProperty('--tilt-y', '0deg');
+                card.classList.remove('tilting');
             };
+
             card.onclick = () => {
                 this.sound.playClick();
                 this.openDetailModal(card.dataset.id);
