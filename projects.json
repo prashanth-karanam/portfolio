@@ -54,5 +54,32 @@
     ],
     "demoUrl": "https://prashanth-karanam.github.io/CodeCanvas/",
     "repoUrl": "https://github.com/prashanth-karanam/CodeCanvas"
+  },
+  {
+    "id": "proj-srm-unblocker",
+    "title": "SRM Wi-Fi Game & Site Unblocker — MASQUE TLS-443 Stealth Tunnel",
+    "subtitle": "1-click automated network firewall bypass engine for university Wi-Fi game blocks and port restrictions.",
+    "summary": "A zero-config network utility and automated batch/PowerShell engine that bypasses institutional Deep Packet Inspection (DPI) and egress port blocks for games (Free Fire, Genshin Impact, Valorant, Steam) and developer tools via MASQUE TLS-443 stealth tunneling.",
+    "about": "SRM Wi-Fi Unblocker is a specialized network utility engineered to solve institutional network blocking across university campus networks. Conventional VPN handshakes (WireGuard/OpenVPN) and custom DNS settings fail on SRMIST campus firewalls because non-standard UDP ports (53, 51820, 1194) and VPN handshakes are actively dropped. This engine encapsulates game packets inside MASQUE (HTTP/3 over TLS Port 443) stealth tunnels, making game server traffic look identical to standard HTTPS web browsing with sub-15ms latency. Features a self-healing connection loop, dual installer fallbacks, and 1-line PowerShell deployment.",
+    "usecase": "Bypassing university Wi-Fi gaming blocks (Free Fire, Genshin, Steam), unblocking restricted developer resources (GitHub, GFG, Udemy), and zero-latency campus networking.",
+    "date": "2026-08-07",
+    "category": "Systems & Networking",
+    "image": "codecanvas_thumbnail.jpg",
+    "engineeringMethod": "Hand-Crafted Core Architecture",
+    "engineeringLabel": "🛠️ Hand-Crafted Core",
+    "hackathon": "Open-Source Campus Tool",
+    "youtubeUrl": "",
+    "youtubeId": "",
+    "tags": [
+      "PowerShell",
+      "Batch / CMD",
+      "MASQUE Protocol",
+      "TLS 443 Tunneling",
+      "Cloudflare WARP",
+      "Networking",
+      "DPI Circumvention"
+    ],
+    "demoUrl": "https://github.com/prashanth-karanam/srm-wifi-unblocker",
+    "repoUrl": "https://github.com/prashanth-karanam/srm-wifi-unblocker"
   }
 ]
