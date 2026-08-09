@@ -61,6 +61,36 @@
     "repoUrl": "https://github.com/prashanth-karanam/CodeCanvas"
   },
   {
+    "id": "proj-luna-v3",
+    "title": "Luna v3 — Local OS Intelligence & Automation Engine",
+    "subtitle": "100% offline 3B local AI assistant co-built for OpenAI Build Week featuring Playwright CDP browser driving and RAM optimization.",
+    "summary": "OpenAI Build Week 2026 (7-Day Sprint Build): A 100% offline 3B parameter local AI OS operating alongside a Python backend driver to execute RAM optimization, Playwright CDP browser driving, process watchdog, and workstation security — zero cloud data leaks.",
+    "about": "Luna v3 represents my second official submission for OpenAI Build Week 2026. Built in 7 days alongside CodeCanvas, Luna v3 connects local 3B LLM inference (via Ollama) with a high-performance Python/PowerShell backend driver. It allows users to control their Windows OS hands-free — launching browser windows, searching YouTube, managing RAM thermals, and locking workstations securely offline.",
+    "usecase": "Hands-free browser driving, hands-free media playback, RAM process watchdog, system diagnostics, and 100% offline privacy control.",
+    "chronologyStep": "OpenAI Build Week (7-Day Build)",
+    "date": "2026-07-31",
+    "lastCommitDate": "2026-07-31",
+    "lastCommitMsg": "feat: Luna v3 OpenAI Build Week release with Playwright CDP & RAM watchdog",
+    "category": "OpenAI Build Week",
+    "image": "luna_thumbnail.jpg",
+    "engineeringMethod": "Agentic AI Engineering & Python Driver Systems",
+    "engineeringLabel": "OpenAI Build Week (7-Day Build)",
+    "hackathon": "OpenAI Build Week 2026 Submission 02",
+    "youtubeUrl": "https://youtu.be/PIV8i_lnrgU?si=BHkIlId4xUnj-3FC",
+    "youtubeId": "PIV8i_lnrgU",
+    "tags": [
+      "Ollama 3B",
+      "Playwright CDP",
+      "Python Backend",
+      "ASUS ROG Power",
+      "System Automation",
+      "OpenAI Build Week",
+      "Win32 IPC"
+    ],
+    "demoUrl": "https://github.com/prashanth-karanam/Luna-V3",
+    "repoUrl": "https://github.com/prashanth-karanam/Luna-V3"
+  },
+  {
     "id": "proj-srm-unblocker",
     "title": "SRM Wi-Fi Unblocker — MASQUE TLS-443 Stealth Tunnel Engine",
     "subtitle": "1-click automated network firewall bypass engine for university Wi-Fi game blocks and port restrictions.",

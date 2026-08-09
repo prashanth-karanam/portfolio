@@ -45,12 +45,34 @@ const DEFAULT_PROJECTS = [
     image: "codecanvas_thumbnail.jpg",
     engineeringMethod: "Agentic AI Engineering & GPT-5.6 Co-Creation",
     engineeringLabel: "🚀 OpenAI Build Week (7-Day Build)",
-    hackathon: "OpenAI Build Week 2026 Submission",
+    hackathon: "OpenAI Build Week 2026 Submission 01",
     youtubeUrl: "https://youtu.be/U5va0qWt1Dc?si=3xpzYX8EiTl4M-EZ",
     youtubeId: "U5va0qWt1Dc",
     tags: ["React 19", "GPT-5.6", "Vite", "Monaco Editor", "TailwindCSS", "TypeScript", "WebAssembly"],
     demoUrl: "https://prashanth-karanam.github.io/CodeCanvas/",
     repoUrl: "https://github.com/prashanth-karanam/CodeCanvas"
+  },
+  {
+    id: "proj-luna-v3",
+    title: "Luna v3 — Local OS Intelligence & Automation Engine",
+    subtitle: "100% offline 3B local AI assistant co-built for OpenAI Build Week featuring Playwright CDP browser driving and RAM optimization.",
+    summary: "OpenAI Build Week 2026 (7-Day Sprint Build): A 100% offline 3B parameter local AI OS operating alongside a Python backend driver to execute RAM optimization, Playwright CDP browser driving, process watchdog, and workstation security — zero cloud data leaks.",
+    about: "Luna v3 represents my second official submission for OpenAI Build Week 2026. Built in 7 days alongside CodeCanvas, Luna v3 connects local 3B LLM inference (via Ollama) with a high-performance Python/PowerShell backend driver. It allows users to control their Windows OS hands-free — launching browser windows, searching YouTube, managing RAM thermals, and locking workstations securely offline.",
+    usecase: "Hands-free browser driving, hands-free media playback, RAM process watchdog, system diagnostics, and 100% offline privacy control.",
+    chronologyStep: "OpenAI Build Week (7-Day Build)",
+    date: "2026-07-31",
+    lastCommitDate: "2026-07-31",
+    lastCommitMsg: "feat: Luna v3 OpenAI Build Week release with Playwright CDP & RAM watchdog",
+    category: "OpenAI Build Week",
+    image: "luna_thumbnail.jpg",
+    engineeringMethod: "Agentic AI Engineering & Python Driver Systems",
+    engineeringLabel: "🚀 OpenAI Build Week (7-Day Build)",
+    hackathon: "OpenAI Build Week 2026 Submission 02",
+    youtubeUrl: "https://youtu.be/PIV8i_lnrgU?si=BHkIlId4xUnj-3FC",
+    youtubeId: "PIV8i_lnrgU",
+    tags: ["Ollama 3B", "Playwright CDP", "Python Backend", "ASUS ROG Power", "System Automation", "OpenAI Build Week", "Win32 IPC"],
+    demoUrl: "https://github.com/prashanth-karanam/Luna-V3",
+    repoUrl: "https://github.com/prashanth-karanam/Luna-V3"
   },
   {
     id: "proj-srm-unblocker",
@@ -145,7 +167,7 @@ function generateProceduralGraphic(title, color1, color2) {
 
 class ProjectStore {
     constructor() {
-        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V1000';
+        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V1100';
         try {
             localStorage.clear();
         } catch(e) {}
@@ -882,6 +904,64 @@ class PrismApp {
 
                 <div id="tab-cc-ghpages" class="tab-content">
                     <iframe src="${p.demoUrl}" style="width:100%; height:400px; border:none; border-radius:8px; background:#ffffff;"></iframe>
+                </div>
+            `;
+        } else if (p.id === 'proj-luna-v3') {
+            // LUNA V3 OPENAI BUILD WEEK TABS
+            modalTabsNav.innerHTML = `
+                <button class="tab-btn active" data-tab="tab-lv3-overview"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Overview & Specs</button>
+                <button class="tab-btn" data-tab="tab-lv3-workflow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>5-Step Automation Loop</button>
+                <button class="tab-btn" data-tab="tab-lv3-features"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Flagship OS Features</button>
+            `;
+
+            modalBodyScroll.innerHTML = `
+                <div id="tab-lv3-overview" class="tab-content active">
+                    <div class="preview-hero-box"><img src="${p.image}" alt="${p.title}" class="modal-preview-image"></div>
+                    <div class="info-section">
+                        <h4>OpenAI Build Week 2026 Submission 02</h4>
+                        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:0.75rem;">
+                            <a href="${p.repoUrl}" target="_blank" class="primary-btn glow-btn" style="text-decoration:none;">Inspect Luna-V3 GitHub Repository</a>
+                            <a href="${p.youtubeUrl}" target="_blank" class="secondary-btn" style="text-decoration:none;">Watch Demo Video</a>
+                        </div>
+                    </div>
+                    <div class="info-section"><h4>Primary Use Case</h4><p class="highlight-text-box">${p.usecase}</p></div>
+                    <div class="info-section"><h4>Detailed Technical Description</h4><p class="prose-text">${p.about}</p></div>
+                    <div class="info-section"><h4>Tech Stack</h4><div class="tag-cloud">${p.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}</div></div>
+                </div>
+
+                <div id="tab-lv3-workflow" class="tab-content">
+                    <h4 style="color:#f8fafc; margin-bottom:0.75rem;">Luna v3 5-Step Automation Loop</h4>
+                    <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(56,189,248,0.15); color:#38bdf8; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">01</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">Natural Prompt Intake</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Intercepts natural voice audio or kinetic HUD keyboard commands on device.</p></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(56,189,248,0.15); color:#38bdf8; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">02</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">Local Ollama 3B Inference</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Runs 3B model locally on GPU (~40ms inference), generating structured action JSON.</p></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(236,72,153,0.15); color:#ec4899; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">03</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">Python Driver Handshake</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Passes JSON action vectors to the Python system service via fast IPC sockets.</p></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(16,185,129,0.15); color:#10b981; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">04</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">Playwright CDP Browser Driving</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Drives browser instances hands-free to perform YouTube searches, song plays, and web scraping.</p></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(245,158,11,0.15); color:#f59e0b; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">05</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">RAM Watchdog & ROG Power Tuning</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Inspects thermals, terminates bloating background processes, and tunes fan profiles.</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-lv3-features" class="tab-content">
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.85rem;">
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Playwright CDP Automation</h5><p style="color:#94a3b8; font-size:0.8rem;">Hands-free browser driving, link clicking, and media playback.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">100% Offline Local Inference</h5><p style="color:#94a3b8; font-size:0.8rem;">Runs Ollama 3B model on GPU with zero cloud data leaks.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">RAM & Process Watchdog</h5><p style="color:#94a3b8; font-size:0.8rem;">Real-time thermal telemetry and process control.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">OpenAI Build Week Submission 02</h5><p style="color:#94a3b8; font-size:0.8rem;">Co-built in 7-day sprint alongside CodeCanvas.</p></div>
+                    </div>
                 </div>
             `;
         } else if (p.id === 'proj-srm-unblocker') {
