@@ -24,9 +24,9 @@
       "Python",
       "JSONL Dataset"
     ],
-    "demoUrl": "",
+    "demoUrl": "https://drive.google.com/drive/folders/1e02x7nnwuwPKhCK4KgFcKylzdeuMaAmV?usp=drive_link",
     "repoUrl": "https://github.com/prashanth-karanam/Luna-V3",
-    "downloadNotice": "Download links of both the Luna 3B LLM model weights and its Python tools backend will be released soon."
+    "downloadNotice": "Download fine-tuned Luna v4 GGUF model weights & dataset directly from Google Drive."
   },
   {
     "id": "proj-codecanvas",
