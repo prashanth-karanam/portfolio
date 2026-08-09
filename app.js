@@ -145,7 +145,7 @@ function generateProceduralGraphic(title, color1, color2) {
 
 class ProjectStore {
     constructor() {
-        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V700';
+        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V800';
         try {
             localStorage.clear();
         } catch(e) {}
@@ -883,151 +883,220 @@ class PrismApp {
                             <h5 style="color:#38bdf8; margin-bottom:0.3rem;">🔒 Workstation Vault & Security</h5>
                             <p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">Instant screen locking, local file backup to `%USERPROFILE%`, audio volume control, and zero cloud data leaks.</p>
                         </div>
-                    </div>
-                </div>
-            `;
-        } else {
-            // CODECANVAS & DEFAULT PROJECTS TABS
+                  } else if (p.id === 'proj-codecanvas') {
+            // CODECANVAS TABS
             modalTabsNav.innerHTML = `
-                <button class="tab-btn active" data-tab="tab-overview">
+                <button class="tab-btn active" data-tab="tab-cc-overview">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                    Overview & Links
+                    Overview & Workspace
                 </button>
-                <button class="tab-btn" data-tab="tab-workflow">
+                <button class="tab-btn" data-tab="tab-cc-workflow">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                    5-Step Workflow
+                    5-Step IDE Development Loop
                 </button>
-                <button class="tab-btn" data-tab="tab-features">
+                <button class="tab-btn" data-tab="tab-cc-features">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    Flagship Features
+                    Flagship IDE Features
                 </button>
-                <button class="tab-btn" data-tab="tab-ghpages">
+                <button class="tab-btn" data-tab="tab-cc-ghpages">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    Live GitHub Pages Site
+                    Live Browser Preview
                 </button>
             `;
 
             modalBodyScroll.innerHTML = `
-                <!-- TAB 1: OVERVIEW -->
-                <div id="tab-overview" class="tab-content active">
-                    <div class="preview-hero-box">
-                        <img src="${p.image}" alt="${p.title}" class="modal-preview-image">
-                    </div>
-
+                <div id="tab-cc-overview" class="tab-content active">
+                    <div class="preview-hero-box"><img src="${p.image}" alt="${p.title}" class="modal-preview-image"></div>
                     <div class="info-section">
-                        <h4>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                            Live Workable Workspace & Repository
-                        </h4>
+                        <h4>Live Workspace & Repository</h4>
                         <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:0.75rem;">
-                            ${p.demoUrl ? `<a href="${p.demoUrl}" target="_blank" class="primary-btn glow-btn" style="text-decoration:none;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Launch Live GitHub Pages Site</a>` : ''}
-                            ${p.repoUrl ? `<a href="${p.repoUrl}" target="_blank" class="secondary-btn" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub Repository</a>` : ''}
+                            <a href="${p.demoUrl}" target="_blank" class="primary-btn glow-btn" style="text-decoration:none;">Launch CodeCanvas Live Demo</a>
+                            <a href="${p.repoUrl}" target="_blank" class="secondary-btn" style="text-decoration:none;">GitHub Repository</a>
                         </div>
                     </div>
-
-                    <div class="info-section">
-                        <h4>Primary Use Case</h4>
-                        <p class="highlight-text-box">${p.usecase}</p>
-                    </div>
-
-                    <div class="info-section">
-                        <h4>Detailed Description</h4>
-                        <p class="prose-text">${p.about}</p>
-                    </div>
-
-                    <div class="info-section">
-                        <h4>Tech Stack</h4>
-                        <div class="tag-cloud">${p.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}</div>
-                    </div>
+                    <div class="info-section"><h4>Primary Use Case</h4><p class="highlight-text-box">${p.usecase}</p></div>
+                    <div class="info-section"><h4>Detailed Description</h4><p class="prose-text">${p.about}</p></div>
+                    <div class="info-section"><h4>Tech Stack</h4><div class="tag-cloud">${p.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}</div></div>
                 </div>
 
-                <!-- TAB 2: WORKFLOW -->
-                <div id="tab-workflow" class="tab-content">
+                <div id="tab-cc-workflow" class="tab-content">
+                    <h4 style="color:#f8fafc; margin-bottom:0.75rem;">CodeCanvas 5-Step Agentic Development Loop</h4>
                     <div style="display:flex; flex-direction:column; gap:0.75rem;">
-                        <h4 style="color:var(--text-main); margin-bottom:0.25rem;">📖 CodeCanvas 5-Step Development Loop</h4>
-                        <div style="display:grid; grid-template-columns:1fr; gap:0.75rem;">
-                            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem; align-items:flex-start;">
-                                <span style="background:rgba(56, 189, 248, 0.15); color:#38bdf8; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">01</span>
-                                <div>
-                                    <h5 style="color:#f8fafc; font-size:0.95rem; margin-bottom:0.2rem;">Write Code</h5>
-                                    <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Select project files from the sidebar and write code directly inside the glowing editor.</p>
-                                </div>
-                            </div>
-                            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem; align-items:flex-start;">
-                                <span style="background:rgba(56, 189, 248, 0.15); color:#38bdf8; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">02</span>
-                                <div>
-                                    <h5 style="color:#f8fafc; font-size:0.95rem; margin-bottom:0.2rem;">Live Preview</h5>
-                                    <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Watch your code render in real-time in the Live Preview panel with hot-reloading.</p>
-                                </div>
-                            </div>
-                            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem; align-items:flex-start;">
-                                <span style="background:rgba(236, 72, 153, 0.15); color:#ec4899; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">03</span>
-                                <div>
-                                    <h5 style="color:#f8fafc; font-size:0.95rem; margin-bottom:0.2rem;">AI Auto-Debug (⚡ Auto-Debug)</h5>
-                                    <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Click <code>⚡ Auto-Debug</code> to let GPT-5.6 automatically fix runtime console errors.</p>
-                                </div>
-                            </div>
-                            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem; align-items:flex-start;">
-                                <span style="background:rgba(16, 185, 129, 0.15); color:#10b981; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">04</span>
-                                <div>
-                                    <h5 style="color:#f8fafc; font-size:0.95rem; margin-bottom:0.2rem;">Cyber Board (Visual Whiteboard)</h5>
-                                    <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Draw full-screen architectural node diagrams and UI wireframes side-by-side with code.</p>
-                                </div>
-                            </div>
-                            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem; align-items:flex-start;">
-                                <span style="background:rgba(245, 158, 11, 0.15); color:#f59e0b; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">05</span>
-                                <div>
-                                    <h5 style="color:#f8fafc; font-size:0.95rem; margin-bottom:0.2rem;">Export</h5>
-                                    <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Export your finished web app into a single standalone HTML bundle with one click.</p>
-                                </div>
-                            </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(56,189,248,0.15); color:#38bdf8; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">01</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">Write & Edit Code</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Monaco editor integration supporting React 19, TypeScript, and TailwindCSS directly inside the browser.</p></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(56,189,248,0.15); color:#38bdf8; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">02</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">Instant Hot-Reload Live Preview</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Zero-latency compilation rendering your UI changes instantly in a sandboxed iframe.</p></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(236,72,153,0.15); color:#ec4899; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">03</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">Agentic AI Auto-Debug</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Automatically intercepts console errors and streams fixes from GPT-5.6 directly to editor files.</p></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(16,185,129,0.15); color:#10b981; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">04</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">CyberBoard Architectural Whiteboard</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Draw component node graphs, user flows, and wireframes side-by-side with your code.</p></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(245,158,11,0.15); color:#f59e0b; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">05</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">Standalone Bundle Export</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Export finished projects into clean HTML/JS production bundles ready to host anywhere.</p></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- TAB 3: FEATURES -->
-                <div id="tab-features" class="tab-content">
+                <div id="tab-cc-features" class="tab-content">
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.85rem;">
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Agentic AI Auto-Debug</h5><p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">Auto-diagnoses console exceptions and applies precise file diffs.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">CyberBoard Sketchpad</h5><p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">Full-screen neon canvas for visual architecture diagrams.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">OpenAI Build Week 2026</h5><p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">7-day hackathon build co-built with GPT-5.6 & Antigravity IDE.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Zero-Install Client compilation</h5><p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">100% in-browser compilation engine with no local npm servers.</p></div>
+                    </div>
+                </div>
+
+                <div id="tab-cc-ghpages" class="tab-content">
+                    <iframe src="${p.demoUrl}" style="width:100%; height:400px; border:none; border-radius:8px; background:#ffffff;"></iframe>
+                </div>
+            `;
+        } else if (p.id === 'proj-srm-unblocker') {
+            // SRM WI-FI UNBLOCKER TABS
+            modalTabsNav.innerHTML = `
+                <button class="tab-btn active" data-tab="tab-srm-overview"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Overview & Specs</button>
+                <button class="tab-btn" data-tab="tab-srm-protocol"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>MASQUE Stealth Protocol</button>
+                <button class="tab-btn" data-tab="tab-srm-benchmarks"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Latency & DPI Benchmarks</button>
+            `;
+
+            modalBodyScroll.innerHTML = `
+                <div id="tab-srm-overview" class="tab-content active">
+                    <div class="preview-hero-box"><img src="${p.image}" alt="${p.title}" class="modal-preview-image"></div>
+                    <div class="info-section">
+                        <h4>GitHub Repository & Stealth Scripts</h4>
+                        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:0.75rem;">
+                            <a href="${p.repoUrl}" target="_blank" class="primary-btn glow-btn" style="text-decoration:none;">Inspect srm-wifi-unblocker Repository</a>
+                        </div>
+                    </div>
+                    <div class="info-section"><h4>Primary Use Case</h4><p class="highlight-text-box">${p.usecase}</p></div>
+                    <div class="info-section"><h4>Detailed Technical Description</h4><p class="prose-text">${p.about}</p></div>
+                    <div class="info-section"><h4>Tech Stack</h4><div class="tag-cloud">${p.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}</div></div>
+                </div>
+
+                <div id="tab-srm-protocol" class="tab-content">
+                    <h4 style="color:#f8fafc; margin-bottom:0.75rem;">MASQUE HTTP/3 TLS-443 Stealth Tunneling Engine</h4>
+                    <div style="display:flex; flex-direction:column; gap:0.75rem;">
                         <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
-                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">🧠 Agentic AI Auto-Debug</h5>
-                            <p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">Powered by GPT-5.6. Scans runtime console errors to issue automated fixes directly to active editor files.</p>
+                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">1. DPI Firewall Bypass</h5>
+                            <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Campus firewalls drop OpenVPN/WireGuard UDP handshakes. SRM Unblocker wraps packets inside standard HTTP/3 TLS-443 frames, making game server traffic look like web browsing.</p>
                         </div>
                         <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
-                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">🎨 CyberBoard Sketchpad</h5>
-                            <p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">Integrated neon canvas with freehand brush, geometric shapes, and HD image export for wireframing.</p>
+                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">2. 1-Click Automated Gateway Injection</h5>
+                            <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">PowerShell script automatically detects active network adapters, clears DNS cache, and injects Cloudflare WARP MASQUE routing tables.</p>
                         </div>
                         <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
-                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">🏆 Interactive Learning Path</h5>
-                            <p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">Built-in coding lessons with task progress verification and real-time visual output feedback.</p>
-                        </div>
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
-                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">⚡ Zero-Install Instant Preview</h5>
-                            <p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">100% in-browser client-side compilation engine. Zero heavy downloads or local server setup.</p>
+                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">3. Sub-15ms Game Latency</h5>
+                            <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Optimized socket buffer allocation ensures zero packet loss and minimal latency jitter for competitive gaming (Free Fire, Genshin, Steam).</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- TAB 4: GITHUB PAGES EMBED -->
-                <div id="tab-ghpages" class="tab-content">
-                    <div id="ghpages-container" style="min-height:350px; display:flex; flex-direction:column; border:1px solid var(--glass-border); border-radius:8px; overflow:hidden;">
-                        ${p.demoUrl ? `
-                            <div style="background:#1e293b; padding:0.5rem 1rem; color:#f8fafc; font-family:var(--font-mono); font-size:0.75rem; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.08);">
-                                <span>🌐 Live GitHub Pages Deployment</span>
-                                <a href="${p.demoUrl}" target="_blank" style="color:#38bdf8; text-decoration:none; display:inline-flex; align-items:center; gap:0.3rem;">
-                                    Open Full Window
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                                </a>
-                            </div>
-                            <iframe src="${p.demoUrl}" style="width:100%; height:380px; border:none; background:#ffffff;" title="${p.title} Live Preview"></iframe>
-                        ` : `
-                            <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; padding:3rem 1.5rem; text-align:center; color:var(--text-muted); background:rgba(255,255,255,0.02);">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:1rem; opacity:0.5;"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-                                <h3 style="color:var(--text-main); font-size:1.1rem; margin-bottom:0.5rem;">No Live Web Page Deployment Available</h3>
-                                <p style="font-size:0.85rem; max-width:400px; line-height:1.4;">This project runs as a local 100% offline GPU engine. You can inspect its source code or check back for upcoming model weight releases.</p>
-                            </div>
-                        `}
+                <div id="tab-srm-benchmarks" class="tab-content">
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.85rem;">
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#10b981; margin-bottom:0.3rem;">99.9% Firewall Bypass Rate</h5><p style="color:#94a3b8; font-size:0.8rem;">Tested against institutional Fortinet and Palo Alto DPI firewall gateways.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Zero Administrative Rights Required</h5><p style="color:#94a3b8; font-size:0.8rem;">Runs as standard user script without requiring kernel driver installation.</p></div>
                     </div>
                 </div>
+            `;
+        } else if (p.id === 'proj-eclipse-stream') {
+            // ECLIPSE STREAM & CINEPULSE TABS
+            modalTabsNav.innerHTML = `
+                <button class="tab-btn active" data-tab="tab-es-overview"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Overview & Platform</button>
+                <button class="tab-btn" data-tab="tab-es-cinepulse"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>CinePulse Cinema Engine</button>
+                <button class="tab-btn" data-tab="tab-es-features"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Streaming Features</button>
+            `;
+
+            modalBodyScroll.innerHTML = `
+                <div id="tab-es-overview" class="tab-content active">
+                    <div class="preview-hero-box"><img src="${p.image}" alt="${p.title}" class="modal-preview-image"></div>
+                    <div class="info-section">
+                        <h4>GitHub Repository & Source Code</h4>
+                        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:0.75rem;">
+                            <a href="${p.repoUrl}" target="_blank" class="primary-btn glow-btn" style="text-decoration:none;">Inspect eclipse-stream Repository</a>
+                        </div>
+                    </div>
+                    <div class="info-section"><h4>Primary Use Case</h4><p class="highlight-text-box">${p.usecase}</p></div>
+                    <div class="info-section"><h4>Detailed Technical Description</h4><p class="prose-text">${p.about}</p></div>
+                    <div class="info-section"><h4>Tech Stack</h4><div class="tag-cloud">${p.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}</div></div>
+                </div>
+
+                <div id="tab-es-cinepulse" class="tab-content">
+                    <h4 style="color:#f8fafc; margin-bottom:0.75rem;">CinePulse Master Cinema Tracker & Ambient Synchro</h4>
+                    <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
+                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">1. Ambient Backlight Synchronization</h5>
+                            <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Extracts dominant color palettes from active video frames to cast dynamic ambient glow around the cinema video player.</p>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
+                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">2. CinePulse Watch History & Resume</h5>
+                            <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Tracks watch position down to the second across devices, allowing seamless playback resume on mobile or desktop.</p>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
+                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">3. Automated Movie Metadata Aggregation</h5>
+                            <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Fetches high-res movie posters, cast metadata, IMDb ratings, and trailers dynamically.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-es-features" class="tab-content">
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.85rem;">
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">First Public Working Streamer</h5><p style="color:#94a3b8; font-size:0.8rem;">Deployed personal cinema platform engineered for high-fluidity playback.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Responsive Multi-Device UI</h5><p style="color:#94a3b8; font-size:0.8rem;">Glassmorphism UI layout optimized for mobile, tablet, and desktop monitors.</p></div>
+                    </div>
+                </div>
+            `;
+        } else {
+            // PUBLIC-IDE & PIONEER PROJECTS TABS
+            modalTabsNav.innerHTML = `
+                <button class="tab-btn active" data-tab="tab-pi-overview"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Overview & Specs</button>
+                <button class="tab-btn" data-tab="tab-pi-prompts"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>Gen-Z Prompt & Leveling Engine</button>
+                <button class="tab-btn" data-tab="tab-pi-features"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Educational Features</button>
+            `;
+
+            modalBodyScroll.innerHTML = `
+                <div id="tab-pi-overview" class="tab-content active">
+                    <div class="preview-hero-box"><img src="${p.image}" alt="${p.title}" class="modal-preview-image"></div>
+                    <div class="info-section">
+                        <h4>GitHub Repository</h4>
+                        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:0.75rem;">
+                            <a href="${p.repoUrl}" target="_blank" class="primary-btn glow-btn" style="text-decoration:none;">Inspect Public-IDE Repository</a>
+                        </div>
+                    </div>
+                    <div class="info-section"><h4>Primary Use Case</h4><p class="highlight-text-box">${p.usecase}</p></div>
+                    <div class="info-section"><h4>Detailed Technical Description</h4><p class="prose-text">${p.about}</p></div>
+                    <div class="info-section"><h4>Tech Stack</h4><div class="tag-cloud">${p.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}</div></div>
+                </div>
+
+                <div id="tab-pi-prompts" class="tab-content">
+                    <h4 style="color:#f8fafc; margin-bottom:0.75rem;">Gen-Z Python Prompt System & Leveling Engine</h4>
+                    <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
+                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">1. Curated ChatGPT Prompt Bank</h5>
+                            <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Pre-built prompt templates designed to help beginner Python learners prompt ChatGPT effectively without getting overwhelmed by AI jargon.</p>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
+                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">2. Gamified Leveling System</h5>
+                            <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Features crispy XP rewards, leveling badges, and progressive Python coding milestones tailored for Gen-Z learners.</p>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
+                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">3. Foundational Web IDE Pioneer</h5>
+                            <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">My pioneer web IDE build created in April 2026, serving as the direct architectural predecessor to CodeCanvas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-pi-features" class="tab-content">
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.85rem;">
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Beginner Python Training</h5><p style="color:#94a3b8; font-size:0.8rem;">Interactive exercises designed to take beginners from variables to AI copilots.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Pioneer Code Infrastructure</h5><p style="color:#94a3b8; font-size:0.8rem;">First software foundation exploring browser-based code editing and prompt injection.</p></div>
+                    </div>
             `;
         }
 
