@@ -145,7 +145,7 @@ function generateProceduralGraphic(title, color1, color2) {
 
 class ProjectStore {
     constructor() {
-        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V900';
+        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V950';
         try {
             localStorage.clear();
         } catch(e) {}
@@ -737,171 +737,78 @@ class PrismApp {
         const modalTabsNav = document.querySelector('.modal-tabs');
         const modalBodyScroll = document.querySelector('.modal-body-scroll');
 
-        if (p.id === 'proj-luna' || p.id === 'proj-luna-brain' || p.id === 'proj-luna-gui') {
+        if (p.id === 'proj-luna-brain' || p.id === 'proj-luna' || p.id === 'proj-luna-gui') {
+            // LUNA PURE BRAIN TABS
             modalTabsNav.innerHTML = `
-                <button class="tab-btn active" data-tab="tab-luna-overview">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                    Overview & Notice
-                </button>
-                <button class="tab-btn" data-tab="tab-luna-autonomy">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-                    Dataset Autonomy Architecture
-                </button>
-                <button class="tab-btn" data-tab="tab-luna-cascade">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                    4-Level Execution Cascade
-                </button>
-                <button class="tab-btn" data-tab="tab-luna-tools">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                    System Action Tools
-                </button>
+                <button class="tab-btn active" data-tab="tab-luna-overview"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Overview & Drive Link</button>
+                <button class="tab-btn" data-tab="tab-luna-workflow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>5-Step Execution Loop</button>
+                <button class="tab-btn" data-tab="tab-luna-features"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Flagship SLM Features</button>
+                <button class="tab-btn" data-tab="tab-luna-autonomy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>Dataset Autonomy</button>
             `;
 
             modalBodyScroll.innerHTML = `
-                <!-- TAB 1: LUNA OVERVIEW -->
                 <div id="tab-luna-overview" class="tab-content active">
-                    <div class="preview-hero-box">
-                        <img src="${p.image}" alt="${p.title}" class="modal-preview-image">
-                    </div>
-
+                    <div class="preview-hero-box"><img src="${p.image}" alt="${p.title}" class="modal-preview-image"></div>
                     <div class="info-section" style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; padding: 1.25rem;">
-                        <h4 style="color:#38bdf8; display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                            Download Status & Upcoming Release
-                        </h4>
-                        <p style="color:#f8fafc; font-size:0.92rem; line-height:1.5; font-weight:500;">
-                            ⚡ <strong>Notice:</strong> Download links of both the <strong>Luna 3B LLM model weights</strong> and its <strong>Python tools backend</strong> will be released soon.
-                        </p>
+                        <h4 style="color:#38bdf8; margin-bottom:0.5rem;">Google Drive Model Weights & Dataset</h4>
+                        <p style="color:#f8fafc; font-size:0.9rem; line-height:1.5;">Download fine-tuned <strong>Luna 3B GGUF model weights</strong> and the 1.6MB+ <strong>Graph-of-Thought master SFT dataset</strong> directly from Google Drive.</p>
                         <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:0.85rem;">
-                            <a href="${p.repoUrl}" target="_blank" class="primary-btn glow-btn" style="text-decoration:none;">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                                Star on GitHub (Releases Coming Soon)
-                            </a>
+                            <a href="${p.demoUrl}" target="_blank" class="primary-btn glow-btn" style="text-decoration:none;">Open Google Drive Download Vault</a>
+                            <a href="${p.repoUrl}" target="_blank" class="secondary-btn" style="text-decoration:none;">GitHub Repository</a>
                         </div>
                     </div>
-
-                    <div class="info-section">
-                        <h4>🎯 Primary Usecase</h4>
-                        <p class="highlight-text-box">${p.usecase}</p>
-                    </div>
-
-                    <div class="info-section">
-                        <h4>🧠 Detailed Architecture & Purpose</h4>
-                        <p class="prose-text">${p.about}</p>
-                    </div>
-
-                    <div class="info-section">
-                        <h4>🛠️ Technology Stack</h4>
-                        <div class="tag-cloud">${p.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}</div>
-                    </div>
+                    <div class="info-section"><h4>Primary Use Case</h4><p class="highlight-text-box">${p.usecase}</p></div>
+                    <div class="info-section"><h4>Detailed Technical Description</h4><p class="prose-text">${p.about}</p></div>
+                    <div class="info-section"><h4>Tech Stack</h4><div class="tag-cloud">${p.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}</div></div>
                 </div>
 
-                <!-- TAB 2: DATASET AUTONOMY -->
-                <div id="tab-luna-autonomy" class="tab-content">
-                    <div style="display:flex; flex-direction:column; gap:1rem;">
-                        <h4 style="color:#f8fafc;">🔬 Fine-Tuning & Dataset Autonomy Architecture</h4>
-                        <p style="color:#94a3b8; font-size:0.88rem; line-height:1.5;">
-                            Rather than relying on vague conversation prompts, Luna 3B is fine-tuned on a targeted <strong>Supervised Fine-Tuning (SFT) dataset</strong> engineered specifically to solve small-model tool calling failure modes.
-                        </p>
-
-                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.85rem;">
-                            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:1rem;">
-                                <h5 style="color:#38bdf8; margin-bottom:0.3rem;">1. 100% Schema Consistency</h5>
-                                <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">ALL tool outputs emit strict JSON action arrays <code>[{"action": "..."}]</code> without Markdown chatter or hallucinated syntax wrappers.</p>
-                            </div>
-                            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:1rem;">
-                                <h5 style="color:#38bdf8; margin-bottom:0.3rem;">2. Zero Numeric Hallucination</h5>
-                                <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Telemetry data (CPU/GPU temps, memory bytes, PIDs) ONLY appear after verified environment telemetry injection, preventing fake hardware stats.</p>
-                            </div>
-                            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:1rem;">
-                                <h5 style="color:#38bdf8; margin-bottom:0.3rem;">3. Canonical System Prompt</h5>
-                                <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Single unified system prompt across 500+ dataset rows grounds the 3B model's attention heads to maintain zero-drift focus.</p>
-                            </div>
-                            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:1rem;">
-                                <h5 style="color:#38bdf8; margin-bottom:0.3rem;">4. Rich Lexical Diversity</h5>
-                                <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Varied natural speech, shorthand, typos, and negative/clarification samples prevent surface pattern overfitting.</p>
-                            </div>
+                <div id="tab-luna-workflow" class="tab-content">
+                    <h4 style="color:#f8fafc; margin-bottom:0.75rem;">Luna Pure Brain 5-Step Execution Workflow</h4>
+                    <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(56,189,248,0.15); color:#38bdf8; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">01</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">Command Capture</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Intercepts voice audio or keyboard prompts inside the kinetic Deep Space HUD.</p></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(56,189,248,0.15); color:#38bdf8; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">02</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">1KB Telemetry State Injection</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Injects live CPU/GPU thermals, RAM bytes, PIDs, and active Wi-Fi stats into prompt state.</p></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(236,72,153,0.15); color:#ec4899; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">03</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">3B SLM Fine-Tuned Inference (&lt;35ms)</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Local GGUF model processes prompt and emits deterministic JSON action vectors with zero cloud latency.</p></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(16,185,129,0.15); color:#10b981; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">04</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">AST Allowlist Security Gate</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Validates JSON action payloads against static AST allowlists to prevent dangerous system calls.</p></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(245,158,11,0.15); color:#f59e0b; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">05</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">Native Driver Execution</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Executes Win32/WMI calls, PowerShell FastPSPool scripts, or Playwright CDP browser drivers natively.</p></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- TAB 3: 4-LEVEL EXECUTION CASCADE -->
-                <div id="tab-luna-cascade" class="tab-content">
-                    <div style="display:flex; flex-direction:column; gap:0.85rem;">
-                        <h4 style="color:#f8fafc;">⚡ Luna 4-Level Latency & Execution Pipeline</h4>
-                        
-                        <div style="background:rgba(16, 185, 129, 0.08); border:1px solid rgba(16, 185, 129, 0.25); border-radius:8px; padding:0.9rem; display:flex; gap:1rem; align-items:flex-start;">
-                            <span style="background:rgba(16, 185, 129, 0.2); color:#10b981; font-family:var(--font-mono); font-weight:bold; font-size:0.85rem; padding:0.25rem 0.5rem; border-radius:6px;">Level 0</span>
-                            <div>
-                                <h5 style="color:#f8fafc; font-size:0.92rem; margin-bottom:0.2rem;">Fast Pattern Interceptor & FastPSPool (⚡ 5ms, 0 Tokens)</h5>
-                                <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Instant pattern matcher bypasses LLM inference for cached system templates using a pre-warmed PowerShell pool.</p>
-                            </div>
-                        </div>
-
-                        <div style="background:rgba(56, 189, 248, 0.08); border:1px solid rgba(56, 189, 248, 0.25); border-radius:8px; padding:0.9rem; display:flex; gap:1rem; align-items:flex-start;">
-                            <span style="background:rgba(56, 189, 248, 0.2); color:#38bdf8; font-family:var(--font-mono); font-weight:bold; font-size:0.85rem; padding:0.25rem 0.5rem; border-radius:6px;">Level 1</span>
-                            <div>
-                                <h5 style="color:#f8fafc; font-size:0.92rem; margin-bottom:0.2rem;">Local Ollama / Qwen 3B Action Parser (~40ms Inference)</h5>
-                                <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Runs fine-tuned 3B model locally on user's GPU. Emits clean JSON action objects for complex un-cached queries.</p>
-                            </div>
-                        </div>
-
-                        <div style="background:rgba(168, 85, 247, 0.08); border:1px solid rgba(168, 85, 247, 0.25); border-radius:8px; padding:0.9rem; display:flex; gap:1rem; align-items:flex-start;">
-                            <span style="background:rgba(168, 85, 247, 0.2); color:#a855f7; font-family:var(--font-mono); font-weight:bold; font-size:0.85rem; padding:0.25rem 0.5rem; border-radius:6px;">Level 2</span>
-                            <div>
-                                <h5 style="color:#f8fafc; font-size:0.92rem; margin-bottom:0.2rem;">Multi-Step Playwright CDP Browser & OS Automation</h5>
-                                <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Executes browser driving, YouTube search & playback, network socket diagnostics, and file system management.</p>
-                            </div>
-                        </div>
-
-                        <div style="background:rgba(239, 68, 68, 0.08); border:1px solid rgba(239, 68, 68, 0.25); border-radius:8px; padding:0.9rem; display:flex; gap:1rem; align-items:flex-start;">
-                            <span style="background:rgba(239, 68, 68, 0.2); color:#ef4444; font-family:var(--font-mono); font-weight:bold; font-size:0.85rem; padding:0.25rem 0.5rem; border-radius:6px;">Level 3</span>
-                            <div>
-                                <h5 style="color:#f8fafc; font-size:0.92rem; margin-bottom:0.2rem;">Security Gate & Circuit Breaker Recovery</h5>
-                                <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">AST security parser blocks unsafe commands while CircuitBreaker prevents infinite execution loops on command failure.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- TAB 4: SYSTEM TOOLS -->
-                <div id="tab-luna-tools" class="tab-content">
+                <div id="tab-luna-features" class="tab-content">
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.85rem;">
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
-                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">🚀 RAM & Process Watchdog</h5>
-                            <p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">Inspects thermal telemetry, terminates bloating background processes, and tunes ASUS ROG fan & power profiles.</p>
-                        </div>
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
-                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">🌐 Playwright CDP Automation</h5>
-                            <p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">Drives web browser windows hands-free: searches YouTube, plays music, clicks links, and fetches web telemetry.</p>
-                        </div>
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
-                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">📶 Wireless & Network Diagnostics</h5>
-                            <p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">Executes ICMP ping tests, scans active SSIDs, switches Wi-Fi bands (5GHz/6GHz), and manages adapters.</p>
-                        </div>
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
-                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">🔒 Workstation Vault & Security</h5>
-                            <p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">Instant screen locking, local file backup to `%USERPROFILE%`, audio volume control, and zero cloud data leaks.</p>
-                        </div>
-                  } else if (p.id === 'proj-codecanvas') {
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Graph-of-Thought Dataset Autonomy</h5><p style="color:#94a3b8; font-size:0.8rem;">Fine-tuned on 1.6MB+ SFT command dataset with zero conversational fluff.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Sub-35ms Local GPU Latency</h5><p style="color:#94a3b8; font-size:0.8rem;">100% offline local GGUF inference on user's GPU with zero cloud API costs.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Deterministic JSON Action Vectors</h5><p style="color:#94a3b8; font-size:0.8rem;">Emits strict tool call arrays without Markdown chatter or syntax errors.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Hardened AST Security Gate</h5><p style="color:#94a3b8; font-size:0.8rem;">Circuit breaker protection blocking un-whitelisted system calls.</p></div>
+                    </div>
+                </div>
+
+                <div id="tab-luna-autonomy" class="tab-content">
+                    <h4 style="color:#f8fafc; margin-bottom:0.75rem;">SFT Dataset Autonomy Architecture</h4>
+                    <p style="color:#94a3b8; font-size:0.88rem; line-height:1.5;">Luna 3B is trained on <code>luna_v4_got_master_dataset.jsonl</code>, solving small-model tool calling failure modes through 100% schema consistency, zero numeric hallucination, and canonical system prompt grounding.</p>
+                </div>
+            `;
+        } else if (p.id === 'proj-codecanvas') {
             // CODECANVAS TABS
             modalTabsNav.innerHTML = `
-                <button class="tab-btn active" data-tab="tab-cc-overview">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                    Overview & Workspace
-                </button>
-                <button class="tab-btn" data-tab="tab-cc-workflow">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                    5-Step IDE Development Loop
-                </button>
-                <button class="tab-btn" data-tab="tab-cc-features">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    Flagship IDE Features
-                </button>
-                <button class="tab-btn" data-tab="tab-cc-ghpages">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    Live Browser Preview
-                </button>
+                <button class="tab-btn active" data-tab="tab-cc-overview"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Overview & Workspace</button>
+                <button class="tab-btn" data-tab="tab-cc-workflow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>5-Step IDE Development Loop</button>
+                <button class="tab-btn" data-tab="tab-cc-features"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Flagship IDE Features</button>
+                <button class="tab-btn" data-tab="tab-cc-ghpages"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Live Browser Preview</button>
             `;
 
             modalBodyScroll.innerHTML = `
@@ -947,10 +854,10 @@ class PrismApp {
 
                 <div id="tab-cc-features" class="tab-content">
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.85rem;">
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Agentic AI Auto-Debug</h5><p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">Auto-diagnoses console exceptions and applies precise file diffs.</p></div>
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">CyberBoard Sketchpad</h5><p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">Full-screen neon canvas for visual architecture diagrams.</p></div>
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">OpenAI Build Week 2026</h5><p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">7-day hackathon build co-built with GPT-5.6 & Antigravity IDE.</p></div>
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Zero-Install Client compilation</h5><p style="color:#94a3b8; font-size:0.8rem; line-height:1.4;">100% in-browser compilation engine with no local npm servers.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Agentic AI Auto-Debug</h5><p style="color:#94a3b8; font-size:0.8rem;">Auto-diagnoses console exceptions and applies precise file diffs.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">CyberBoard Sketchpad</h5><p style="color:#94a3b8; font-size:0.8rem;">Full-screen neon canvas for visual architecture diagrams.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">OpenAI Build Week 2026</h5><p style="color:#94a3b8; font-size:0.8rem;">7-day hackathon build co-built with GPT-5.6 & Antigravity IDE.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Zero-Install Client Compilation</h5><p style="color:#94a3b8; font-size:0.8rem;">100% in-browser compilation engine with no local npm servers.</p></div>
                     </div>
                 </div>
 
@@ -962,8 +869,8 @@ class PrismApp {
             // SRM WI-FI UNBLOCKER TABS
             modalTabsNav.innerHTML = `
                 <button class="tab-btn active" data-tab="tab-srm-overview"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Overview & Specs</button>
-                <button class="tab-btn" data-tab="tab-srm-protocol"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>MASQUE Stealth Protocol</button>
-                <button class="tab-btn" data-tab="tab-srm-benchmarks"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Latency & DPI Benchmarks</button>
+                <button class="tab-btn" data-tab="tab-srm-workflow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>5-Step Stealth Bypass Process</button>
+                <button class="tab-btn" data-tab="tab-srm-features"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Flagship Stealth Features</button>
             `;
 
             modalBodyScroll.innerHTML = `
@@ -980,37 +887,47 @@ class PrismApp {
                     <div class="info-section"><h4>Tech Stack</h4><div class="tag-cloud">${p.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}</div></div>
                 </div>
 
-                <div id="tab-srm-protocol" class="tab-content">
-                    <h4 style="color:#f8fafc; margin-bottom:0.75rem;">MASQUE HTTP/3 TLS-443 Stealth Tunneling Engine</h4>
+                <div id="tab-srm-workflow" class="tab-content">
+                    <h4 style="color:#f8fafc; margin-bottom:0.75rem;">SRM Wi-Fi 5-Step Stealth Bypass Process</h4>
                     <div style="display:flex; flex-direction:column; gap:0.75rem;">
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
-                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">1. DPI Firewall Bypass</h5>
-                            <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Campus firewalls drop OpenVPN/WireGuard UDP handshakes. SRM Unblocker wraps packets inside standard HTTP/3 TLS-443 frames, making game server traffic look like web browsing.</p>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(56,189,248,0.15); color:#38bdf8; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">01</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">Network Adapter Auto-Scan</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Identifies active campus Wi-Fi interface (SRMIST) and default gateway socket paths.</p></div>
                         </div>
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
-                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">2. 1-Click Automated Gateway Injection</h5>
-                            <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">PowerShell script automatically detects active network adapters, clears DNS cache, and injects Cloudflare WARP MASQUE routing tables.</p>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(56,189,248,0.15); color:#38bdf8; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">02</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">DNS & Route Table Cleanup</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Flushes stale Windows DNS cache and resets blocked IP routing tables.</p></div>
                         </div>
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
-                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">3. Sub-15ms Game Latency</h5>
-                            <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Optimized socket buffer allocation ensures zero packet loss and minimal latency jitter for competitive gaming (Free Fire, Genshin, Steam).</p>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(236,72,153,0.15); color:#ec4899; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">03</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">MASQUE HTTP/3 Encapsulation</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Encapsulates game & application UDP packets inside HTTP/3 TLS Port 443 stealth frames.</p></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(16,185,129,0.15); color:#10b981; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">04</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">DPI Firewall Bypass</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Disguises encrypted game packets as standard HTTPS web browsing to fool campus DPI firewalls.</p></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(245,158,11,0.15); color:#f59e0b; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">05</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">Low-Latency Socket Tunneling</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Directs game server packets over Cloudflare WARP stealth tunnel with sub-15ms latency.</p></div>
                         </div>
                     </div>
                 </div>
 
-                <div id="tab-srm-benchmarks" class="tab-content">
+                <div id="tab-srm-features" class="tab-content">
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.85rem;">
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#10b981; margin-bottom:0.3rem;">99.9% Firewall Bypass Rate</h5><p style="color:#94a3b8; font-size:0.8rem;">Tested against institutional Fortinet and Palo Alto DPI firewall gateways.</p></div>
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Zero Administrative Rights Required</h5><p style="color:#94a3b8; font-size:0.8rem;">Runs as standard user script without requiring kernel driver installation.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#10b981; margin-bottom:0.3rem;">99.9% DPI Bypass Rate</h5><p style="color:#94a3b8; font-size:0.8rem;">Bypasses Fortinet, Palo Alto, and campus firewall blocks.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Sub-15ms Game Latency</h5><p style="color:#94a3b8; font-size:0.8rem;">Zero packet loss encapsulation for Free Fire, Genshin, and Steam.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">1-Click Automated Script</h5><p style="color:#94a3b8; font-size:0.8rem;">Lightweight PowerShell script requiring zero kernel drivers.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Port 443 Stealth Tunneling</h5><p style="color:#94a3b8; font-size:0.8rem;">Disguises all traffic on standard HTTPS ports to prevent port blocking.</p></div>
                     </div>
                 </div>
             `;
         } else if (p.id === 'proj-eclipse-stream') {
             // ECLIPSE STREAM & CINEPULSE TABS
             modalTabsNav.innerHTML = `
-                <button class="tab-btn active" data-tab="tab-es-overview"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Overview & Platform</button>
-                <button class="tab-btn" data-tab="tab-es-cinepulse"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>CinePulse Cinema Engine</button>
-                <button class="tab-btn" data-tab="tab-es-features"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Streaming Features</button>
+                <button class="tab-btn active" data-tab="tab-es-overview"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Overview & Specs</button>
+                <button class="tab-btn" data-tab="tab-es-workflow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>5-Step Streaming Loop</button>
+                <button class="tab-btn" data-tab="tab-es-features"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Flagship Cinema Features</button>
             `;
 
             modalBodyScroll.innerHTML = `
@@ -1027,28 +944,38 @@ class PrismApp {
                     <div class="info-section"><h4>Tech Stack</h4><div class="tag-cloud">${p.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}</div></div>
                 </div>
 
-                <div id="tab-es-cinepulse" class="tab-content">
-                    <h4 style="color:#f8fafc; margin-bottom:0.75rem;">CinePulse Master Cinema Tracker & Ambient Synchro</h4>
+                <div id="tab-es-workflow" class="tab-content">
+                    <h4 style="color:#f8fafc; margin-bottom:0.75rem;">Eclipse Stream 5-Step Cinema Streaming Loop</h4>
                     <div style="display:flex; flex-direction:column; gap:0.75rem;">
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
-                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">1. Ambient Backlight Synchronization</h5>
-                            <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Extracts dominant color palettes from active video frames to cast dynamic ambient glow around the cinema video player.</p>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(56,189,248,0.15); color:#38bdf8; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">01</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">Metadata Search & Aggregation</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Queries TMDb API for HD posters, cast metadata, IMDb ratings, and trailers.</p></div>
                         </div>
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
-                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">2. CinePulse Watch History & Resume</h5>
-                            <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Tracks watch position down to the second across devices, allowing seamless playback resume on mobile or desktop.</p>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(56,189,248,0.15); color:#38bdf8; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">02</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">High-Fluidity HLS Stream Delivery</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Serves adaptive bitrate video streams with zero buffering and low memory overhead.</p></div>
                         </div>
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
-                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">3. Automated Movie Metadata Aggregation</h5>
-                            <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Fetches high-res movie posters, cast metadata, IMDb ratings, and trailers dynamically.</p>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(236,72,153,0.15); color:#ec4899; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">03</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">Ambient Backlight Synchronization</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Extracts dominant color palettes from active video frames to cast dynamic ambient glow.</p></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(16,185,129,0.15); color:#10b981; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">04</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">CinePulse History & Resume</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Saves exact video timestamps down to the second for cross-device playback resume.</p></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(245,158,11,0.15); color:#f59e0b; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">05</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">Smart Watchlist & Collection</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Manages custom movie collections, episode progress, and viewing analytics.</p></div>
                         </div>
                     </div>
                 </div>
 
                 <div id="tab-es-features" class="tab-content">
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.85rem;">
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">First Public Working Streamer</h5><p style="color:#94a3b8; font-size:0.8rem;">Deployed personal cinema platform engineered for high-fluidity playback.</p></div>
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Responsive Multi-Device UI</h5><p style="color:#94a3b8; font-size:0.8rem;">Glassmorphism UI layout optimized for mobile, tablet, and desktop monitors.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Ambient Glow Cinema Player</h5><p style="color:#94a3b8; font-size:0.8rem;">Dynamic color backlight synchronization around video frame.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">CinePulse Cross-Device Resume</h5><p style="color:#94a3b8; font-size:0.8rem;">Automatic watch progress saving across mobile and desktop.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Automated Metadata Curation</h5><p style="color:#94a3b8; font-size:0.8rem;">High-res movie posters, cast lists, trailers, and IMDb ratings.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Responsive Glassmorphism UI</h5><p style="color:#94a3b8; font-size:0.8rem;">Layout optimized for high-refresh-rate desktop displays.</p></div>
                     </div>
                 </div>
             `;
@@ -1056,8 +983,8 @@ class PrismApp {
             // PUBLIC-IDE & PIONEER PROJECTS TABS
             modalTabsNav.innerHTML = `
                 <button class="tab-btn active" data-tab="tab-pi-overview"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Overview & Specs</button>
-                <button class="tab-btn" data-tab="tab-pi-prompts"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>Gen-Z Prompt & Leveling Engine</button>
-                <button class="tab-btn" data-tab="tab-pi-features"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Educational Features</button>
+                <button class="tab-btn" data-tab="tab-pi-workflow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>5-Step Gen-Z Learning Loop</button>
+                <button class="tab-btn" data-tab="tab-pi-features"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Flagship Learning Features</button>
             `;
 
             modalBodyScroll.innerHTML = `
@@ -1074,29 +1001,38 @@ class PrismApp {
                     <div class="info-section"><h4>Tech Stack</h4><div class="tag-cloud">${p.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}</div></div>
                 </div>
 
-                <div id="tab-pi-prompts" class="tab-content">
-                    <h4 style="color:#f8fafc; margin-bottom:0.75rem;">Gen-Z Python Prompt System & Leveling Engine</h4>
+                <div id="tab-pi-workflow" class="tab-content">
+                    <h4 style="color:#f8fafc; margin-bottom:0.75rem;">Public-IDE 5-Step Gen-Z Learning Loop</h4>
                     <div style="display:flex; flex-direction:column; gap:0.75rem;">
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
-                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">1. Curated ChatGPT Prompt Bank</h5>
-                            <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Pre-built prompt templates designed to help beginner Python learners prompt ChatGPT effectively without getting overwhelmed by AI jargon.</p>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(56,189,248,0.15); color:#38bdf8; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">01</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">Prompt Template Selection</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Beginner selects a pre-built Python prompt from the curated ChatGPT prompt bank.</p></div>
                         </div>
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
-                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">2. Gamified Leveling System</h5>
-                            <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Features crispy XP rewards, leveling badges, and progressive Python coding milestones tailored for Gen-Z learners.</p>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(56,189,248,0.15); color:#38bdf8; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">02</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">Interactive Task Coding</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Writes Python code directly inside the browser editor following step-by-step guidance.</p></div>
                         </div>
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;">
-                            <h5 style="color:#38bdf8; margin-bottom:0.3rem;">3. Foundational Web IDE Pioneer</h5>
-                            <p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">My pioneer web IDE build created in April 2026, serving as the direct architectural predecessor to CodeCanvas.</p>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(236,72,153,0.15); color:#ec4899; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">03</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">AI Copilot Guidance</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Inputs structured prompt into ChatGPT or built-in helper for instant explanation.</p></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
+                            <span style="background:rgba(16,185,129,0.15); color:#10b981; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">04</span>
+                            <div><h5 style="color:#f8fafc; font-size:0.95rem;">Output Verification</h5><p style="color:#94a3b8; font-size:0.82rem; line-height:1.4;">Runs Python code in browser to verify task completion and output correctness.</p></div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
                         </div>
                     </div>
                 </div>
 
                 <div id="tab-pi-features" class="tab-content">
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.85rem;">
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Beginner Python Training</h5><p style="color:#94a3b8; font-size:0.8rem;">Interactive exercises designed to take beginners from variables to AI copilots.</p></div>
-                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Pioneer Code Infrastructure</h5><p style="color:#94a3b8; font-size:0.8rem;">First software foundation exploring browser-based code editing and prompt injection.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Curated ChatGPT Prompt Bank</h5><p style="color:#94a3b8; font-size:0.8rem;">Simplifies AI prompting for beginner programmers without jargon overload.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Gamified Leveling Engine</h5><p style="color:#94a3b8; font-size:0.8rem;">XP points, progression ranks, and coding badges tailored for Gen-Z learners.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Step-by-Step Python Curriculum</h5><p style="color:#94a3b8; font-size:0.8rem;">Guided exercises spanning variables, loops, functions, and AI integration.</p></div>
+                        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem;"><h5 style="color:#38bdf8; margin-bottom:0.3rem;">Pioneer IDE Architecture</h5><p style="color:#94a3b8; font-size:0.8rem;">Foundational web IDE layout that established the core codebase for CodeCanvas.</p></div>
                     </div>
+                </div>
             `;
         }
 
