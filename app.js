@@ -145,7 +145,7 @@ function generateProceduralGraphic(title, color1, color2) {
 
 class ProjectStore {
     constructor() {
-        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V400';
+        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V500';
         try {
             localStorage.clear();
         } catch(e) {}
@@ -681,17 +681,19 @@ class PrismApp {
                     </div>
                     <p class="card-summary">${p.summary}</p>
                     ${p.lastCommitMsg ? `
-                    <div class="card-commit-box" style="margin: 0.6rem 0; padding: 0.45rem 0.65rem; background: rgba(0,0,0,0.3); border-left: 2px solid #38bdf8; border-radius: 4px; font-family: var(--font-mono); font-size: 0.72rem; color: #94a3b8; display: flex; align-items: center; gap: 0.4rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="1.05" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="22.95" y2="12"/></svg>
-                        <span><strong>Commit (${p.lastCommitDate}):</strong> ${p.lastCommitMsg}</span>
+                    <div class="card-commit-box">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="1.05" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="22.95" y2="12"/></svg>
+                        <span><strong>Last Commit (${p.lastCommitDate}):</strong> ${p.lastCommitMsg}</span>
                     </div>` : ''}
                     <div class="card-footer">
                         <div class="tag-cloud">
-                            ${p.tags.slice(0, 4).map(t => `<span class="tech-tag">${t}</span>`).join('')}
+                            ${p.tags.slice(0, 3).map(t => `<span class="tech-tag">${t}</span>`).join('')}
                         </div>
-                        <span class="card-action-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                        </span>
+                        <div class="card-actions-bar" onclick="event.stopPropagation()">
+                            ${p.demoUrl ? `<a href="${p.demoUrl}" target="_blank" class="card-btn primary">${p.demoUrl.includes('drive.google.com') ? 'Drive' : 'Live Demo'}</a>` : ''}
+                            ${p.repoUrl ? `<a href="${p.repoUrl}" target="_blank" class="card-btn secondary">GitHub</a>` : ''}
+                            ${p.youtubeId ? `<button onclick="window.openVideoModal('${p.youtubeId}', '${p.title.replace(/'/g, "\\'")}')" class="card-btn yt">Watch</button>` : ''}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -699,31 +701,10 @@ class PrismApp {
 
         container.querySelectorAll('.spatial-card').forEach(card => {
             card.onmouseenter = () => this.sound.playHover();
-
-            let rafId = null;
-            card.onmousemove = (e) => {
-                if (rafId) return; // throttle to one update per frame
-                rafId = requestAnimationFrame(() => {
-                    const rect = card.getBoundingClientRect();
-                    const x = (e.clientX - rect.left - rect.width  / 2) / (rect.width  / 2);
-                    const y = (e.clientY - rect.top  - rect.height / 2) / (rect.height / 2);
-                    card.style.setProperty('--tilt-x', `${(y * -6).toFixed(2)}deg`);
-                    card.style.setProperty('--tilt-y', `${(x *  6).toFixed(2)}deg`);
-                    card.classList.add('tilting');
-                    rafId = null;
-                });
-            };
-
-            card.onmouseleave = () => {
-                if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
-                card.style.setProperty('--tilt-x', '0deg');
-                card.style.setProperty('--tilt-y', '0deg');
-                card.classList.remove('tilting');
-            };
-
             card.onclick = () => {
                 this.sound.playClick();
-                this.openDetailModal(card.dataset.id);
+                const id = card.dataset.id;
+                this.openDetailModal(id);
             };
         });
     }
