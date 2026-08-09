@@ -145,7 +145,7 @@ function generateProceduralGraphic(title, color1, color2) {
 
 class ProjectStore {
     constructor() {
-        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V800';
+        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V900';
         try {
             localStorage.clear();
         } catch(e) {}
