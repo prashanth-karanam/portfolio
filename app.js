@@ -145,7 +145,7 @@ function generateProceduralGraphic(title, color1, color2) {
 
 class ProjectStore {
     constructor() {
-        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V500';
+        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V600';
         try {
             localStorage.clear();
         } catch(e) {}
@@ -692,7 +692,7 @@ class PrismApp {
                         <div class="card-actions-bar" onclick="event.stopPropagation()">
                             ${p.demoUrl ? `<a href="${p.demoUrl}" target="_blank" class="card-btn primary">${p.demoUrl.includes('drive.google.com') ? 'Drive' : 'Live Demo'}</a>` : ''}
                             ${p.repoUrl ? `<a href="${p.repoUrl}" target="_blank" class="card-btn secondary">GitHub</a>` : ''}
-                            ${p.youtubeId ? `<button onclick="window.openVideoModal('${p.youtubeId}', '${p.title.replace(/'/g, "\\'")}')" class="card-btn yt">Watch</button>` : ''}
+                            ${p.youtubeUrl ? `<a href="${p.youtubeUrl}" target="_blank" rel="noopener" class="card-btn yt">Watch</a>` : ''}
                         </div>
                     </div>
                 </div>
