@@ -145,11 +145,12 @@ function generateProceduralGraphic(title, color1, color2) {
 
 class ProjectStore {
     constructor() {
-        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V950';
+        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V1000';
         try {
             localStorage.clear();
         } catch(e) {}
         this.projects = DEFAULT_PROJECTS;
+        this.onUpdate = null;
         this.initStore();
     }
 
@@ -161,7 +162,8 @@ class ProjectStore {
                 if (Array.isArray(jsonProjects) && jsonProjects.length > 0) {
                     this.projects = jsonProjects;
                     this.enforceDateFix();
-                    if (window.prismApp) {
+                    if (this.onUpdate) this.onUpdate();
+                    else if (window.prismApp) {
                         window.prismApp.renderSkillMatrix();
                         window.prismApp.renderProjects();
                         window.prismApp.updateStats();
@@ -175,6 +177,7 @@ class ProjectStore {
 
         this.enforceDateFix();
         this.saveProjects(this.projects);
+        if (this.onUpdate) this.onUpdate();
     }
 
     enforceDateFix() {
@@ -393,6 +396,12 @@ class PrismApp {
         this.searchQuery = '';
         this.activeSkillTag = null;
         this.activeEngineeringMethod = 'all';
+
+        this.store.onUpdate = () => {
+            this.renderSkillMatrix();
+            this.renderProjects();
+            this.updateStats();
+        };
 
         this.initUI();
         this.initTheme();
@@ -630,12 +639,22 @@ class PrismApp {
                 return false;
             }
 
-            if (this.activeEngineeringMethod === 'handcrafted' && (!p.engineeringLabel || !p.engineeringLabel.includes('Hand-Crafted'))) {
-                return false;
+            if (this.activeEngineeringMethod === 'handcrafted') {
+                const label = (p.engineeringLabel || '') + (p.engineeringMethod || '') + (p.category || '');
+                const isHandcrafted = label.toLowerCase().includes('hand-crafted') || 
+                                     label.toLowerCase().includes('stealth') ||
+                                     label.toLowerCase().includes('public') ||
+                                     label.toLowerCase().includes('pioneer');
+                if (!isHandcrafted) return false;
             }
 
-            if (this.activeEngineeringMethod === 'agentic' && (!p.engineeringLabel || !p.engineeringLabel.includes('Agentic'))) {
-                return false;
+            if (this.activeEngineeringMethod === 'agentic') {
+                const label = (p.engineeringLabel || '') + (p.engineeringMethod || '') + (p.category || '');
+                const isAgentic = label.toLowerCase().includes('agentic') || 
+                                  label.toLowerCase().includes('fine-tuned') ||
+                                  label.toLowerCase().includes('slm') ||
+                                  label.toLowerCase().includes('openai');
+                if (!isAgentic) return false;
             }
 
             if (this.searchQuery !== '') {
