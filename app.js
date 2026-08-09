@@ -167,7 +167,7 @@ function generateProceduralGraphic(title, color1, color2) {
 
 class ProjectStore {
     constructor() {
-        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V1100';
+        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V1200';
         try {
             localStorage.clear();
         } catch(e) {}
@@ -708,13 +708,13 @@ class PrismApp {
                 <div class="card-media-box">
                     <img src="${p.image}" alt="${p.title}" class="card-image" loading="lazy">
                     <span class="card-category-badge">${p.chronologyStep || p.category}</span>
-                    <span class="card-eng-badge">${p.engineeringLabel || 'Hand-Crafted Core'}</span>
                     <span class="card-date-badge">
                         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                         ${p.date}
                     </span>
                 </div>
                 <div class="card-body">
+                    <span class="card-eng-badge">${p.engineeringLabel || 'Hand-Crafted Core'}</span>
                     <h3 class="card-title">${p.title}</h3>
                     <div class="card-usecase">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
@@ -723,7 +723,7 @@ class PrismApp {
                     <p class="card-summary">${p.summary}</p>
                     ${p.lastCommitMsg ? `
                     <div class="card-commit-box">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="1.05" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="22.95" y2="12"/></svg>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="1.05" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="22.95" y2="12"/></svg>
                         <span><strong>Last Commit (${p.lastCommitDate}):</strong> ${p.lastCommitMsg}</span>
                     </div>` : ''}
                     <div class="card-footer">
