@@ -8,77 +8,226 @@
 // ==========================================================================
 const DEFAULT_PROJECTS = [
     {
-        id: "proj-luna",
-        title: "Luna 3B — Local OS Intelligence & Dataset Autonomy",
-        subtitle: "100% local 3B parameter AI OS brain stem fine-tuned for system commands with zero cloud latency.",
-        summary: "Luna 3B is a fine-tuned 3B parameter model and co-located Python execution engine built to translate natural voice and text commands into real-time system actions (RAM cleanup, process control, Playwright CDP browser automation, network switching) with 0 API calls and 100% local GPU execution.",
-        about: "Luna 3B is not another voice wrapper around ChatGPT or a conversational chatbot. It is a 3B parameter language model fine-tuned specifically to output structured JSON system action arrays. Coupled with a co-located Python backend (FastAPI, SecureExecutor, and FastPSPool), Luna acts directly on operating system calls. Its Dataset Autonomy Architecture features a 4-level execution cascade: Level 0 fast cache (PSPool ~5ms, 0 tokens), Level 1 local Ollama/Qwen 3B inference, Level 2 multi-step CDP automation, and Level 3 Circuit Breaker error recovery. Built on a dataset of 500+ SFT entries with zero numeric hallucination, strict schema consistency, and zero cloud dependency.",
-        usecase: "Autonomous local system control, voice-triggered RAM & process optimization, Playwright CDP browser automation, and offline privacy-first computing.",
-        date: "2026-07-29",
-        category: "AI / ML",
-        image: "luna_thumbnail.jpg",
-        tags: [
-            "Qwen 3B",
-            "PyTorch / SFT",
-            "FastAPI",
-            "Playwright CDP",
-            "PowerShell",
-            "Local GPU",
-            "Python",
-            "JSONL Dataset"
-        ],
+        id: "proj-luna-brain",
+        title: "Luna Pure Brain — Fine-Tuned 3B Parameter Command SLM Engine",
+        subtitle: "100% local 3B parameter command model fine-tuned on Graph-of-Thought dataset, outputting JSON action vectors in <35ms.",
+        summary: "The flagship local AI engine: Fine-tuned 3B parameter model (luna_v4_got_master_dataset.jsonl) emitting deterministic system command JSON action vectors with 0 cloud latency and zero conversational fluff.",
+        about: "Luna Pure Brain is a specialized 3B Small Language Model (SLM) trained exclusively on system command graphs. Instead of relying on brittle Python regex matchers or expensive 70B cloud APIs, Luna Pure Brain is fine-tuned on a 1.6MB+ Graph-of-Thought (GoT) SFT dataset. It acts as a stateless, zero-fluff JSON action emitter operating alongside a 1KB dynamic telemetry loop for native on-device operating system control.",
+        usecase: "Deterministic OS action emission, sub-35ms tool call execution, local GPU GGUF inference, and zero-cloud privacy automation.",
+        chronologyStep: "Flagship Fine-Tuned Model",
+        date: "2026-08-09",
+        lastCommitDate: "2026-08-09",
+        lastCommitMsg: "feat(brain): luna_v4_got_master_dataset 3B SLM release with sub-35ms JSON action vector emission",
+        category: "Fine-Tuned SLM Engine",
+        image: "luna_brain_thumbnail.png",
+        engineeringMethod: "SFT Fine-Tuning & Graph-of-Thought Synthesis",
+        engineeringLabel: "🧠 Fine-Tuned 3B SLM Engine",
+        hackathon: "Flagship Fine-Tuned Model",
+        youtubeUrl: "https://youtube.com/shorts/M71009mYntE?feature=share",
+        youtubeId: "M71009mYntE",
+        tags: ["3B SLM Fine-Tune", "Graph-of-Thought (GoT)", "PyTorch / SFT", "JSON Action Vectors", "Local GPU GGUF", "AST Allowlist Security", "Dataset Autonomy"],
         demoUrl: "https://drive.google.com/drive/folders/1e02x7nnwuwPKhCK4KgFcKylzdeuMaAmV?usp=drive_link",
         repoUrl: "https://github.com/prashanth-karanam/Luna-V3",
-        downloadNotice: "Download fine-tuned Luna v4 GGUF model weights & dataset directly from Google Drive."
+        downloadNotice: "Download fine-tuned Luna v4 GGUF model weights & master dataset directly from Google Drive."
     },
     {
         id: "proj-codecanvas",
-        title: "CodeCanvas — Next-Gen Agentic AI-Native Browser IDE",
+        title: "CodeCanvas — Agentic AI-Native Browser IDE",
         subtitle: "Zero-install agentic AI-native IDE co-built with GPT-5.6 featuring real-time auto-debugging and CyberBoard visual planning.",
-        summary: "A zero-latency, browser-native AI IDE unifying intelligent code generation, automatic error diagnostics, visual architectural whiteboard planning, and instant hot-reloading rendering.",
-        about: "CodeCanvas unifies intelligent code generation, real-time visual architectural planning, and zero-latency browser rendering into a single, cohesive AI-Native Workspace. Built for OpenAI Build Week 2026 and powered by GPT-5.6 & Codex, CodeCanvas acts as an agentic partner that doesn't just suggest code—it understands, auto-diagnoses runtime console errors, and directly constructs full-stack web applications straight inside the browser with zero heavy downloads or local server dependencies.",
+        summary: "OpenAI Build Week 2026 (7-Day Sprint Build): A zero-latency, browser-native AI IDE unifying intelligent code generation, automatic error diagnostics, visual architectural whiteboard planning, and instant hot-reloading rendering.",
+        about: "CodeCanvas unifies intelligent code generation, real-time visual architectural planning, and zero-latency browser rendering into a single, cohesive AI-Native Workspace. Built in 7 days for OpenAI Build Week 2026 and powered by GPT-5.6 & Codex, CodeCanvas acts as an agentic partner that auto-diagnoses console errors and constructs web applications directly inside the browser.",
         usecase: "Instant browser-native software prototyping, agentic AI auto-debugging, visual architecture sketchpad, and zero-setup web application development.",
+        chronologyStep: "OpenAI Build Week 2026 (7-Day Build)",
         date: "2026-07-21",
-        category: "AI / ML",
+        lastCommitDate: "2026-07-21",
+        lastCommitMsg: "docs: update README for OpenAI Build Week with GPT-5.6, Antigravity & zero-download highlights",
+        category: "OpenAI Build Week",
         image: "codecanvas_thumbnail.jpg",
-        tags: [
-            "React 19",
-            "GPT-5.6",
-            "Vite",
-            "Monaco Editor",
-            "TailwindCSS",
-            "TypeScript",
-            "WebAssembly"
-        ],
+        engineeringMethod: "Agentic AI Engineering & GPT-5.6 Co-Creation",
+        engineeringLabel: "🚀 OpenAI Build Week (7-Day Build)",
+        hackathon: "OpenAI Build Week 2026 Submission",
+        youtubeUrl: "https://youtu.be/U5va0qWt1Dc?si=3xpzYX8EiTl4M-EZ",
+        youtubeId: "U5va0qWt1Dc",
+        tags: ["React 19", "GPT-5.6", "Vite", "Monaco Editor", "TailwindCSS", "TypeScript", "WebAssembly"],
         demoUrl: "https://prashanth-karanam.github.io/CodeCanvas/",
         repoUrl: "https://github.com/prashanth-karanam/CodeCanvas"
     },
     {
+        id: "proj-luna-v3",
+        title: "Luna V3 — Autonomous AI OS Desktop Interface",
+        subtitle: "Deep space glassmorphism Electron desktop HUD & GUI orchestrator for local system commands.",
+        summary: "OpenAI Build Week 2026 (7-Day Sprint Build): An autonomous desktop operating system HUD bridging deep space glassmorphism UI with native Python system orchestration, voice listening, and Playwright CDP browser drivers.",
+        about: "Submitted to OpenAI Build Week 2026 as Luna v3, this 7-day build brought autonomous AI execution directly to the desktop operating system. Featuring an ultra-minimal Deep Space Glassmorphism HUD, kinetic 3D neural orb hardware acceleration, and a co-located Python execution engine (FastAPI, FastPSPool, Security Gate), Luna V3 executes native OS actions (RAM cleanup, process control, Playwright CDP browser driving).",
+        usecase: "Autonomous desktop UI control, voice-triggered RAM & process optimization, kinetic dashboard interaction, and Playwright CDP browser automation.",
+        chronologyStep: "OpenAI Build Week 2026 (7-Day Build)",
+        date: "2026-07-21",
+        lastCommitDate: "2026-07-21",
+        lastCommitMsg: "fix: UI error handling, fallback model routing, and kinetic orb hardware acceleration",
+        category: "OpenAI Build Week",
+        image: "luna_thumbnail.jpg",
+        engineeringMethod: "Hand-Crafted Desktop Architecture & Kinetic UI",
+        engineeringLabel: "🚀 OpenAI Build Week (7-Day Build)",
+        hackathon: "OpenAI Build Week 2026 Submission",
+        youtubeUrl: "https://youtu.be/PIV8i_lnrgU?si=BHkIlId4xUnj-3FC",
+        youtubeId: "PIV8i_lnrgU",
+        tags: ["Electron", "Vanilla CSS", "Python Orchestrator", "Playwright CDP", "PowerShell", "Win32 WMI", "FastAPI"],
+        demoUrl: "https://drive.google.com/drive/folders/1e02x7nnwuwPKhCK4KgFcKylzdeuMaAmV?usp=drive_link",
+        repoUrl: "https://github.com/prashanth-karanam/Luna-V3",
+        downloadNotice: "Download fine-tuned Luna GGUF model weights & dataset directly from Google Drive."
+    },
+    {
         id: "proj-srm-unblocker",
-        title: "SRM Wi-Fi Game & Site Unblocker — MASQUE TLS-443 Stealth Tunnel",
+        title: "SRM Wi-Fi Unblocker — MASQUE TLS-443 Stealth Tunnel Engine",
         subtitle: "1-click automated network firewall bypass engine for university Wi-Fi game blocks and port restrictions.",
-        summary: "A zero-config network utility and automated batch/PowerShell engine that bypasses institutional Deep Packet Inspection (DPI) and egress port blocks for games (Free Fire, Genshin Impact, Valorant, Steam) and developer tools via MASQUE TLS-443 stealth tunneling.",
-        about: "SRM Wi-Fi Unblocker is a specialized network utility engineered to solve institutional network blocking across university campus networks. Conventional VPN handshakes (WireGuard/OpenVPN) and custom DNS settings fail on SRMIST campus firewalls because non-standard UDP ports (53, 51820, 1194) and VPN handshakes are actively dropped. This engine encapsulates game packets inside MASQUE (HTTP/3 over TLS Port 443) stealth tunnels, making game server traffic look identical to standard HTTPS web browsing with sub-15ms latency. Features a self-healing connection loop, dual installer fallbacks, and 1-line PowerShell deployment.",
-        usecase: "Bypassing university Wi-Fi gaming blocks (Free Fire, Genshin, Steam), unblocking restricted developer resources (GitHub, GFG, Udemy), and zero-latency campus networking.",
+        summary: "First Stealth Systems & Networking Project: A specialized low-latency networking utility engineered to bypass institutional Deep Packet Inspection (DPI) and university firewall blocks via MASQUE HTTP/3 stealth tunneling over TLS Port 443.",
+        about: "SRM Wi-Fi Unblocker is my pioneer project in the Stealth Systems & Networking genre. Conventional VPN handshakes (WireGuard/OpenVPN) fail on SRMIST campus firewalls because non-standard UDP ports and VPN handshakes are actively dropped. This engine encapsulates game packets inside MASQUE (HTTP/3 over TLS Port 443) stealth tunnels, disguising game server traffic as standard HTTPS web browsing with sub-15ms latency.",
+        usecase: "Bypassing university Wi-Fi gaming blocks (Free Fire, Genshin, Steam), unblocking restricted developer resources, and zero-latency campus stealth networking.",
+        chronologyStep: "First Stealth Networking Project",
         date: "2026-08-07",
-        category: "Systems & Networking",
-        image: "",
-        engineeringMethod: "Hand-Crafted Core Architecture",
-        engineeringLabel: "🛠️ Hand-Crafted Core",
-        hackathon: "Open-Source Campus Tool",
-        youtubeUrl: "",
-        youtubeId: "",
-        tags: [
-            "PowerShell",
-            "Batch / CMD",
-            "MASQUE Protocol",
-            "TLS 443 Tunneling",
-            "Cloudflare WARP",
-            "Networking",
-            "DPI Circumvention"
-        ],
+        lastCommitDate: "2026-08-07",
+        lastCommitMsg: "feat: add SRM Wi-Fi Game & Site Unblocker engine with MASQUE HTTP/3 stealth tunneling",
+        category: "Stealth Systems & Networking",
+        image: "eclipse_thumbnail.png",
+        engineeringMethod: "Hand-Crafted Core Networking Architecture",
+        engineeringLabel: "⚡ Stealth Systems & Networking",
+        hackathon: "Open-Source Stealth Tool",
+        youtubeUrl: "https://youtube.com/shorts/M71009mYntE?feature=share",
+        youtubeId: "M71009mYntE",
+        tags: ["PowerShell", "Batch / CMD", "MASQUE Protocol", "TLS 443 Tunneling", "Cloudflare WARP", "Stealth Networking", "DPI Circumvention"],
         demoUrl: "https://github.com/prashanth-karanam/srm-wifi-unblocker",
         repoUrl: "https://github.com/prashanth-karanam/srm-wifi-unblocker"
+    },
+    {
+        id: "proj-eclipse-stream",
+        title: "Eclipse Stream — First Public Working Media Streaming Platform",
+        subtitle: "Self-hosted personal cinema streaming interface with AI recommendations & real-time tracker.",
+        summary: "First Public Working Media Streaming Project: An ultra-responsive self-hosted personal cinema platform uniting fluid video delivery, intelligent movie metadata curation, ambient player cinematics, and real-time watch tracking.",
+        about: "Eclipse Stream (eclipse-stream & CinePulse) represents my first fully deployed, public working media streaming project. Built to deliver a personal cinema experience, it features instant movie metadata aggregation, custom watchlist management, ambient backlight synchronization, and responsive multi-device video delivery.",
+        usecase: "Self-hosted cinema streaming, automated movie metadata tracking, ambient player cinematics, and multi-device video delivery.",
+        chronologyStep: "First Public Working Project",
+        date: "2026-08-08",
+        lastCommitDate: "2026-08-09",
+        lastCommitMsg: "feat: release CinePulse master tracker & Eclipse Stream media engine",
+        category: "Public Media Platforms",
+        image: "luna_thumbnail.jpg",
+        engineeringMethod: "Hand-Crafted Core Web Architecture",
+        engineeringLabel: "🎬 Public Working Project",
+        hackathon: "Public Media Platform",
+        youtubeUrl: "https://youtube.com/shorts/M71009mYntE?feature=share",
+        youtubeId: "M71009mYntE",
+        tags: ["JavaScript", "HTML5 Video", "Metadata API", "CSS Glassmorphism", "Responsive Web", "CinePulse Tracker"],
+        demoUrl: "https://github.com/prashanth-karanam/eclipse-stream",
+        repoUrl: "https://github.com/prashanth-karanam/eclipse-stream"
+    },
+    {
+        id: "proj-ide-project",
+        title: "IDE-Project — Pioneer Web IDE Foundation",
+        subtitle: "Self-built private web IDE architecture & personal developer workspace.",
+        summary: "First Software Pioneer Project: Created in April 2026 as my foundational self-built private web IDE workspace, establishing the architecture that laid the groundwork for CodeCanvas.",
+        about: "IDE-Project is the pioneer software build that started my development journey into AI-native environments. Engineered in April 2026 as a custom private web IDE, it explored browser-based code editing, file execution, and developer workspace layouts.",
+        usecase: "Foundational web IDE prototyping, private code editing environment, and software architecture experimentation.",
+        chronologyStep: "First Software Pioneer Project",
+        date: "2026-04-13",
+        lastCommitDate: "2026-04-15",
+        lastCommitMsg: "initial: self private ide site architecture & core editor layout",
+        category: "Pioneer IDE Projects",
+        image: "mark_xlix_thumbnail.png",
+        engineeringMethod: "Hand-Crafted Web IDE Core",
+        engineeringLabel: "🛠️ Pioneer Project",
+        hackathon: "Personal Foundation",
+        youtubeUrl: "",
+        youtubeId: "",
+        tags: ["JavaScript", "HTML5 / CSS3", "Web IDE", "Code Editor", "Developer Tools"],
+        demoUrl: "https://github.com/prashanth-karanam/IDE-project",
+        repoUrl: "https://github.com/prashanth-karanam/IDE-project"
+    },
+    {
+        id: "proj-public-ide",
+        title: "Public-IDE — Gen-Z Python Learning IDE & Prompt System",
+        subtitle: "Beginner-friendly Python learning site with built-in ChatGPT prompts and gamified leveling.",
+        summary: "Pioneer Learning IDE Project: A beginner-friendly interactive website designed to train new Python learners with built-in ChatGPT prompts and a crispy Gen-Z leveling system.",
+        about: "Public-IDE was created to bridge the gap between beginner programmers and AI copilots. It features a curated prompt bank for ChatGPT, structured Python tutorials, interactive code execution snippets, and a gamified level-up system tailored for Gen-Z learners.",
+        usecase: "Interactive Python learning, AI prompt engineering education, and gamified coding progression.",
+        chronologyStep: "Pioneer Learning IDE",
+        date: "2026-04-15",
+        lastCommitDate: "2026-04-16",
+        lastCommitMsg: "feat: beginner friendly python prompt system and leveling engine",
+        category: "Pioneer IDE Projects",
+        image: "mark_xlix_thumbnail.png",
+        engineeringMethod: "Hand-Crafted Interactive Web Tool",
+        engineeringLabel: "🛠️ Pioneer Project",
+        hackathon: "Educational AI Tool",
+        youtubeUrl: "",
+        youtubeId: "",
+        tags: ["Python Learning", "ChatGPT Prompts", "Gamified Coding", "Gen-Z UI", "JavaScript"],
+        demoUrl: "https://github.com/prashanth-karanam/Public-IDE",
+        repoUrl: "https://github.com/prashanth-karanam/Public-IDE"
+    },
+    {
+        id: "proj-lunar-beta",
+        title: "Lunar V.4.19.26 Beta — First Pretrained API-Free Small AI Model",
+        subtitle: "First small local AI model built without external cloud API dependencies.",
+        summary: "First Local AI Prototype: Created in April 2026 as my earliest small AI model, exploring pretrained, API-free local inference.",
+        about: "Lunar V.4.19.26 Beta represents my very first milestone in local AI modeling. Built to run without cloud subscriptions or third-party API keys, it laid the foundation for Luna v2, Luna v3, and ultimately the fine-tuned 3B Luna Pure Brain.",
+        usecase: "Offline local AI experimentation, API-free model inference, and small language model prototyping.",
+        chronologyStep: "First Local AI Milestone",
+        date: "2026-04-17",
+        lastCommitDate: "2026-04-19",
+        lastCommitMsg: "release: first small pretrained api free model beta build",
+        category: "Early AI Prototypes",
+        image: "luna_brain_thumbnail.png",
+        engineeringMethod: "Local Model Prototyping",
+        engineeringLabel: "🔬 Early AI Milestone",
+        hackathon: "Local AI Research",
+        youtubeUrl: "",
+        youtubeId: "",
+        tags: ["Local AI", "API-Free Model", "Pretrained SLM", "Python", "Model Prototype"],
+        demoUrl: "https://github.com/prashanth-karanam/Lunar_V.4.19.26_beta",
+        repoUrl: "https://github.com/prashanth-karanam/Lunar_V.4.19.26_beta"
+    },
+    {
+        id: "proj-luna-v2",
+        title: "Luna v2.15.05.26 — Autonomous AI Key Engine",
+        subtitle: "Second version of Luna operating on direct API keys with zero LLM wrapper bloat.",
+        summary: "Early Autonomous AI Milestone: The second iteration of Luna, bridging direct API key orchestration with early autonomous desktop execution.",
+        about: "Luna v2 pushed autonomous AI capabilities further by introducing direct API key management and custom tool execution loops, paving the way for full desktop OS control.",
+        usecase: "Early autonomous AI task execution, API key routing, and system tool integration.",
+        chronologyStep: "Second Luna Iteration",
+        date: "2026-05-15",
+        lastCommitDate: "2026-06-21",
+        lastCommitMsg: "release: second version of luna with direct API key routing",
+        category: "Early AI Prototypes",
+        image: "luna_thumbnail.jpg",
+        engineeringMethod: "API Key Task Orchestration",
+        engineeringLabel: "🔬 Early AI Milestone",
+        hackathon: "Autonomous Agent Research",
+        youtubeUrl: "",
+        youtubeId: "",
+        tags: ["Autonomous AI", "API Key Engine", "JavaScript", "Task Orchestration"],
+        demoUrl: "https://github.com/prashanth-karanam/Luna-v2.15.05.26",
+        repoUrl: "https://github.com/prashanth-karanam/Luna-v2.15.05.26"
+    },
+    {
+        id: "proj-anime-battleground",
+        title: "Anime Battleground & Animeroyale — Interactive Web Games",
+        subtitle: "Interactive web-based battleground games built with TypeScript & Replit.",
+        summary: "Web Gaming Builds: Action-packed anime battleground and royale games built with TypeScript and HTML5 canvas.",
+        about: "Anime Battleground and Animeroyale are interactive multiplayer web games featuring custom character physics, real-time combat loops, and dynamic visual effects.",
+        usecase: "Browser gaming, TypeScript canvas animation, and real-time game physics.",
+        chronologyStep: "Web Game Projects",
+        date: "2026-05-02",
+        lastCommitDate: "2026-05-04",
+        lastCommitMsg: "feat: release anime battleground game mechanics",
+        category: "Web Games",
+        image: "mark_xlix_thumbnail.png",
+        engineeringMethod: "Canvas & TypeScript Engine",
+        engineeringLabel: "🎮 Web Game",
+        hackathon: "Game Dev Build",
+        youtubeUrl: "",
+        youtubeId: "",
+        tags: ["TypeScript", "HTML5 Canvas", "Replit", "Game Dev", "JavaScript"],
+        demoUrl: "https://replit.com/@saiprashantkara/Anime-Battleground",
+        repoUrl: "https://github.com/prashanth-karanam/Anime-Battleground"
     }
 ];
 
@@ -107,7 +256,7 @@ function generateProceduralGraphic(title, color1, color2) {
 
 class ProjectStore {
     constructor() {
-        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V100';
+        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V300';
         try {
             localStorage.clear();
         } catch(e) {}
@@ -141,7 +290,7 @@ class ProjectStore {
 
     enforceDateFix() {
         this.projects.forEach(p => {
-            if (p.id === 'proj-luna') p.date = '2026-07-29';
+            if (p.id === 'proj-luna-brain') p.date = '2026-08-09';
             if (p.id === 'proj-codecanvas') p.date = '2026-07-21';
         });
     }
@@ -628,7 +777,7 @@ class PrismApp {
             <div class="spatial-card" data-id="${p.id}">
                 <div class="card-media-box">
                     <img src="${p.image}" alt="${p.title}" class="card-image" loading="lazy">
-                    <span class="card-category-badge">${p.category}</span>
+                    <span class="card-category-badge">${p.chronologyStep || p.category}</span>
                     <span class="card-eng-badge">${p.engineeringLabel || '🛠️ Hand-Crafted Core'}</span>
                     <span class="card-date-badge">
                         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -642,6 +791,11 @@ class PrismApp {
                         ${p.usecase}
                     </div>
                     <p class="card-summary">${p.summary}</p>
+                    ${p.lastCommitMsg ? `
+                    <div class="card-commit-box" style="margin: 0.6rem 0; padding: 0.45rem 0.65rem; background: rgba(0,0,0,0.3); border-left: 2px solid #38bdf8; border-radius: 4px; font-family: var(--font-mono); font-size: 0.72rem; color: #94a3b8; display: flex; align-items: center; gap: 0.4rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="1.05" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="22.95" y2="12"/></svg>
+                        <span><strong>Commit (${p.lastCommitDate}):</strong> ${p.lastCommitMsg}</span>
+                    </div>` : ''}
                     <div class="card-footer">
                         <div class="tag-cloud">
                             ${p.tags.slice(0, 4).map(t => `<span class="tech-tag">${t}</span>`).join('')}
@@ -701,7 +855,7 @@ class PrismApp {
         const modalTabsNav = document.querySelector('.modal-tabs');
         const modalBodyScroll = document.querySelector('.modal-body-scroll');
 
-        if (p.id === 'proj-luna') {
+        if (p.id === 'proj-luna' || p.id === 'proj-luna-brain' || p.id === 'proj-luna-gui') {
             modalTabsNav.innerHTML = `
                 <button class="tab-btn active" data-tab="tab-luna-overview">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
