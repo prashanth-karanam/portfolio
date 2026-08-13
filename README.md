@@ -38,7 +38,7 @@ Zero-install agentic AI-native IDE co-built with GPT-5.6 featuring real-time aut
 ### ⚡ Wi-Fi Game & Site Unblocker — Alternate Stealth Tunnel when 1.1.1.1 WARP Fails
 Automated network stealth utility that bypasses strict DPI firewalls when standard 1.1.1.1 Cloudflare WARP drops or fails, encapsulating traffic inside MASQUE TLS-443 stealth tunnels with sub-15ms ping.
 - **Crafting Method**: Hand-Crafted Core Networking Architecture
-- **GitHub Repo**: [https://github.com/prashanth-karanam/srm-wifi-unblocker](https://github.com/prashanth-karanam/srm-wifi-unblocker)
+- **GitHub Repo**: [https://github.com/prashanth-karanam/wifi-unblocker](https://github.com/prashanth-karanam/wifi-unblocker)
 
 ---
 

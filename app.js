@@ -964,8 +964,8 @@ class PrismApp {
                     </div>
                 </div>
             `;
-        } else if (p.id === 'proj-srm-unblocker') {
-            // SRM WI-FI UNBLOCKER TABS
+        } else if (p.id === 'proj-wifi-unblocker') {
+            // WI-FI UNBLOCKER TABS
             modalTabsNav.innerHTML = `
                 <button class="tab-btn active" data-tab="tab-srm-overview"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Overview & Specs</button>
                 <button class="tab-btn" data-tab="tab-srm-workflow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>5-Step Stealth Bypass Process</button>
@@ -978,7 +978,7 @@ class PrismApp {
                     <div class="info-section">
                         <h4>GitHub Repository & Stealth Scripts</h4>
                         <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:0.75rem;">
-                            <a href="${p.repoUrl}" target="_blank" class="primary-btn glow-btn" style="text-decoration:none;">Inspect srm-wifi-unblocker Repository</a>
+                            <a href="${p.repoUrl}" target="_blank" class="primary-btn glow-btn" style="text-decoration:none;">Inspect wifi-unblocker Repository</a>
                         </div>
                     </div>
                     <div class="info-section"><h4>Primary Use Case</h4><p class="highlight-text-box">${p.usecase}</p></div>
@@ -987,7 +987,7 @@ class PrismApp {
                 </div>
 
                 <div id="tab-srm-workflow" class="tab-content">
-                    <h4 style="color:#f8fafc; margin-bottom:0.75rem;">SRM Wi-Fi 5-Step Stealth Bypass Process</h4>
+                    <h4 style="color:#f8fafc; margin-bottom:0.75rem;">Wi-Fi Unblocker 5-Step Stealth Bypass Process</h4>
                     <div style="display:flex; flex-direction:column; gap:0.75rem;">
                         <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.85rem; display:flex; gap:1rem;">
                             <span style="background:rgba(56,189,248,0.15); color:#38bdf8; font-family:var(--font-mono); font-weight:bold; font-size:0.9rem; padding:0.3rem 0.6rem; border-radius:6px;">01</span>
