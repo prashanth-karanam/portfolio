@@ -28,6 +28,34 @@
     "repoUrl": "https://github.com/prashanth-karanam/CodeCanvas"
   },
   {
+    "id": "proj-eclipse-stream",
+    "title": "Eclipse Stream (CinePulse) — Self-Hosted Media Platform",
+    "subtitle": "Self-hosted personal media streaming interface and watchlist tracker with zero-dependency Node.js HTTP server.",
+    "summary": "A lightweight personal media streaming platform combining dynamic category browsing, HTML5 video playback, and a standalone Node.js server.",
+    "about": "Eclipse Stream is a self-hosted media player designed for personal media collections. Engineered with vanilla JavaScript, modern CSS glassmorphism, and a zero-dependency Node.js HTTP server, it delivers responsive video playback with zero build overhead.",
+    "usecase": "Self-hosted media cataloging, HTML5 video streaming, watchlist curation, and local HTTP media serving.",
+    "chronologyStep": "Web Media Systems",
+    "date": "2026-08-08",
+    "lastCommitDate": "2026-08-09",
+    "lastCommitMsg": "docs: add professional engineering README for Eclipse Stream",
+    "category": "Media Platforms",
+    "image": "eclipse_stream_yt_thumbnail.png",
+    "engineeringMethod": "Vanilla Web & Node.js Architecture",
+    "engineeringLabel": "Full-Stack Media",
+    "hackathon": "Self-Hosted Platform",
+    "youtubeUrl": "",
+    "youtubeId": "",
+    "tags": [
+      "Vanilla JavaScript",
+      "Node.js HTTP",
+      "HTML5 Video API",
+      "CSS Glassmorphism",
+      "Responsive Layout"
+    ],
+    "demoUrl": "https://github.com/prashanth-karanam/eclipse-stream",
+    "repoUrl": "https://github.com/prashanth-karanam/eclipse-stream"
+  },
+  {
     "id": "proj-luna-assistant",
     "title": "Luna Voice Assistant — Android Overlay Client",
     "subtitle": "Experimental Android client featuring a minimalist Jetpack Compose overlay UI and automated CI/CD APK builds.",

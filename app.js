@@ -36,6 +36,34 @@ const DEFAULT_PROJECTS = [
     "repoUrl": "https://github.com/prashanth-karanam/CodeCanvas"
   },
   {
+    "id": "proj-eclipse-stream",
+    "title": "Eclipse Stream (CinePulse) — Self-Hosted Media Platform",
+    "subtitle": "Self-hosted personal media streaming interface and watchlist tracker with zero-dependency Node.js HTTP server.",
+    "summary": "A lightweight personal media streaming platform combining dynamic category browsing, HTML5 video playback, and a standalone Node.js server.",
+    "about": "Eclipse Stream is a self-hosted media player designed for personal media collections. Engineered with vanilla JavaScript, modern CSS glassmorphism, and a zero-dependency Node.js HTTP server, it delivers responsive video playback with zero build overhead.",
+    "usecase": "Self-hosted media cataloging, HTML5 video streaming, watchlist curation, and local HTTP media serving.",
+    "chronologyStep": "Web Media Systems",
+    "date": "2026-08-08",
+    "lastCommitDate": "2026-08-09",
+    "lastCommitMsg": "docs: add professional engineering README for Eclipse Stream",
+    "category": "Media Platforms",
+    "image": "eclipse_stream_yt_thumbnail.png",
+    "engineeringMethod": "Vanilla Web & Node.js Architecture",
+    "engineeringLabel": "Full-Stack Media",
+    "hackathon": "Self-Hosted Platform",
+    "youtubeUrl": "",
+    "youtubeId": "",
+    "tags": [
+      "Vanilla JavaScript",
+      "Node.js HTTP",
+      "HTML5 Video API",
+      "CSS Glassmorphism",
+      "Responsive Layout"
+    ],
+    "demoUrl": "https://github.com/prashanth-karanam/eclipse-stream",
+    "repoUrl": "https://github.com/prashanth-karanam/eclipse-stream"
+  },
+  {
     "id": "proj-luna-assistant",
     "title": "Luna Voice Assistant — Android Overlay Client",
     "subtitle": "Experimental Android client featuring a minimalist Jetpack Compose overlay UI and automated CI/CD APK builds.",
@@ -95,189 +123,6 @@ const DEFAULT_PROJECTS = [
   }
 ]
 ;
-
-function generateProceduralGraphic(title, color1, color2) {
-    const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
-        <defs>
-            <linearGradient id="grad-${title.replace(/\s+/g, '')}" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="${color1}" stop-opacity="0.95"/>
-                <stop offset="100%" stop-color="${color2}" stop-opacity="0.95"/>
-            </linearGradient>
-            <pattern id="gridPattern" width="30" height="30" patternUnits="userSpaceOnUse">
-                <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-            </pattern>
-        </defs>
-        <rect width="600" height="400" fill="#0d0f14"/>
-        <rect width="600" height="400" fill="url(#gridPattern)"/>
-        <circle cx="300" cy="200" r="140" fill="url(#grad-${title.replace(/\s+/g, '')})" filter="blur(30px)" opacity="0.5"/>
-        <circle cx="300" cy="200" r="80" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6 4"/>
-        <circle cx="300" cy="200" r="115" fill="none" stroke="#64748b" stroke-width="1"/>
-        <text x="300" y="195" fill="#f8fafc" font-family="Space Grotesk, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" letter-spacing="3">${title.toUpperCase()}</text>
-        <text x="300" y="225" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="12" text-anchor="middle" letter-spacing="2">AI OS SYSTEM</text>
-    </svg>`;
-    return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
-}
-
-class ProjectStore {
-    constructor() {
-        this.STORAGE_KEY = 'PRISM_PORTFOLIO_PROJECTS_V1200';
-        try {
-            localStorage.clear();
-        } catch(e) {}
-        this.projects = DEFAULT_PROJECTS;
-        this.onUpdate = null;
-        this.initStore();
-    }
-
-    async initStore() {
-        try {
-            const res = await fetch('projects.json?v=' + Date.now());
-            if (res.ok) {
-                const jsonProjects = await res.json();
-                if (Array.isArray(jsonProjects) && jsonProjects.length > 0) {
-                    this.projects = jsonProjects;
-                    this.enforceDateFix();
-                    if (this.onUpdate) this.onUpdate();
-                    else if (window.prismApp) {
-                        window.prismApp.renderSkillMatrix();
-                        window.prismApp.renderProjects();
-                        window.prismApp.updateStats();
-                    }
-                    return;
-                }
-            }
-        } catch (e) {
-            console.log("Using default projects dataset", e);
-        }
-
-        this.enforceDateFix();
-        this.saveProjects(this.projects);
-        if (this.onUpdate) this.onUpdate();
-    }
-
-    enforceDateFix() {
-        this.projects.forEach(p => {
-            
-        });
-    }
-
-    saveProjects(projectsList) {
-        this.projects = projectsList;
-        localStorage.setItem(this.STORAGE_KEY, JSON.stringify(projectsList));
-    }
-
-    addProject(newProject) {
-        this.projects.unshift(newProject);
-        this.saveProjects(this.projects);
-    }
-
-    getById(id) {
-        return this.projects.find(p => p.id === id);
-    }
-}
-
-// ==========================================================================
-// 2. AUDIO SYNTHESIZER SOUND EFFECTS
-// ==========================================================================
-class SoundFX {
-    constructor() {
-        this.audioCtx = null;
-        this.enabled = localStorage.getItem('PRISM_SOUND') !== 'false';
-    }
-
-    init() {
-        if (!this.audioCtx) {
-            const AudioContext = window.AudioContext || window.webkitAudioContext;
-            if (AudioContext) {
-                this.audioCtx = new AudioContext();
-            }
-        }
-    }
-
-    toggle() {
-        this.enabled = !this.enabled;
-        localStorage.setItem('PRISM_SOUND', this.enabled ? 'true' : 'false');
-        return this.enabled;
-    }
-
-    playClick() {
-        if (!this.enabled) return;
-        this.init();
-        if (!this.audioCtx) return;
-
-        const osc = this.audioCtx.createOscillator();
-        const gain = this.audioCtx.createGain();
-
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(600, this.audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(250, this.audioCtx.currentTime + 0.04);
-
-        gain.gain.setValueAtTime(0.06, this.audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, this.audioCtx.currentTime + 0.04);
-
-        osc.connect(gain);
-        gain.connect(this.audioCtx.destination);
-
-        osc.start();
-        osc.stop(this.audioCtx.currentTime + 0.04);
-    }
-
-    playHover() {
-        if (!this.enabled) return;
-        this.init();
-        if (!this.audioCtx) return;
-
-        const osc = this.audioCtx.createOscillator();
-        const gain = this.audioCtx.createGain();
-
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(350, this.audioCtx.currentTime);
-        osc.frequency.linearRampToValueAtTime(500, this.audioCtx.currentTime + 0.02);
-
-        gain.gain.setValueAtTime(0.015, this.audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, this.audioCtx.currentTime + 0.02);
-
-        osc.connect(gain);
-        gain.connect(this.audioCtx.destination);
-
-        osc.start();
-        osc.stop(this.audioCtx.currentTime + 0.02);
-    }
-
-    playSuccess() {
-        if (!this.enabled) return;
-        this.init();
-        if (!this.audioCtx) return;
-
-        const now = this.audioCtx.currentTime;
-        const osc = this.audioCtx.createOscillator();
-        const gain = this.audioCtx.createGain();
-
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(440, now);
-        osc.frequency.setValueAtTime(554.37, now + 0.08);
-        osc.frequency.setValueAtTime(659.25, now + 0.16);
-
-        gain.gain.setValueAtTime(0.06, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
-
-        osc.connect(gain);
-        gain.connect(this.audioCtx.destination);
-
-        osc.start();
-        osc.stop(now + 0.3);
-    }
-}
-
-// ==========================================================================
-// 3. BACKGROUND CANVAS 3D PARTICLE ENGINE
-// ==========================================================================
-class Canvas3D {
-    constructor(canvasId) {
-        this.canvas = document.getElementById(canvasId);
-        this.ctx = this.canvas.getContext('2d');
-        this.particles = [];
         this.particleCount = 50;
         this.mouseX = 0;
         this.mouseY = 0;
@@ -1233,5 +1078,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initKineticHero();
 });
+
 
 
