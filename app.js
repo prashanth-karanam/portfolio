@@ -1,4 +1,4 @@
-/**
+﻿/**
  * PRISM // SPATIAL PORTFOLIO ENGINE (LUNA 3B & CODECANVAS EDITION)
  * Spotlight Projects: Luna 3B Local Intelligence & CodeCanvas AI IDE
  */
@@ -8,139 +8,93 @@
 // ==========================================================================
 const DEFAULT_PROJECTS = [
   {
-    id: "proj-luna-brain",
-    title: "Luna Pure Brain — Fine-Tuned 3B Parameter Command SLM Engine",
-    subtitle: "100% local 3B parameter command model fine-tuned on Graph-of-Thought dataset, outputting JSON action vectors in <35ms.",
-    summary: "Flagship Fine-Tuned Model: 3B parameter model fine-tuned on Graph-of-Thought dataset (luna_v4_got_master_dataset.jsonl), emitting deterministic system command JSON action vectors with zero cloud latency.",
-    about: "Luna Pure Brain is a specialized 3B Small Language Model (SLM) trained exclusively on system command graphs. Instead of relying on brittle Python regex matchers or expensive 70B cloud APIs, Luna Pure Brain is fine-tuned on a 1.6MB+ Graph-of-Thought (GoT) SFT dataset. It acts as a stateless, zero-fluff JSON action emitter operating alongside a 1KB dynamic telemetry loop for native on-device operating system control.",
-    usecase: "Deterministic OS action emission, sub-35ms tool call execution, local GPU GGUF inference, and zero-cloud privacy automation.",
-    chronologyStep: "Flagship Fine-Tuned Model",
-    date: "2026-08-09",
-    lastCommitDate: "2026-08-09",
-    lastCommitMsg: "feat(brain): luna_v4_got_master_dataset 3B SLM release with sub-35ms JSON action vector emission",
-    category: "Fine-Tuned SLM Engine",
-    image: "luna_brain_yt_thumbnail.png",
-    engineeringMethod: "SFT Fine-Tuning & Graph-of-Thought Synthesis",
-    engineeringLabel: "🧠 Fine-Tuned 3B SLM Engine",
-    hackathon: "Flagship Fine-Tuned Model",
-    youtubeUrl: "https://youtube.com/shorts/M71009mYntE?feature=share",
-    youtubeId: "M71009mYntE",
-    tags: ["3B SLM Fine-Tune", "Graph-of-Thought (GoT)", "PyTorch / SFT", "JSON Action Vectors", "Local GPU GGUF", "AST Allowlist Security", "Dataset Autonomy"],
-    demoUrl: "https://drive.google.com/drive/folders/1e02x7nnwuwPKhCK4KgFcKylzdeuMaAmV?usp=drive_link",
-    repoUrl: "https://github.com/prashanth-karanam/Luna-V3",
-    downloadNotice: "Download fine-tuned Luna v4 GGUF model weights & master dataset directly from Google Drive."
+    "id": "proj-codecanvas",
+    "title": "CodeCanvas — Browser Code Workspace & Architecture Whiteboard",
+    "subtitle": "Client-side web development workspace combining an in-browser code editor, live HTML/CSS/JS preview, and visual whiteboard.",
+    "summary": "A client-side developer workspace combining an in-browser code editor, real-time preview, and an integrated HTML5 canvas for wireframing.",
+    "about": "CodeCanvas unifies code prototyping and visual planning. It features an in-browser code editor with instant iframe rendering and an interactive drawing canvas for UI mockups and data flow diagrams.",
+    "usecase": "Browser-native software prototyping, live code preview, visual architecture sketchpad, and zero-setup web prototyping.",
+    "chronologyStep": "Featured Web Application",
+    "date": "2026-07-21",
+    "lastCommitDate": "2026-07-21",
+    "lastCommitMsg": "docs: upgrade README to high-craft architecture and engineering spec",
+    "category": "Web Developer Tools",
+    "image": "codecanvas_thumbnail.jpg",
+    "engineeringMethod": "Frontend Engineering & Systems Design",
+    "engineeringLabel": "Frontend Architecture",
+    "hackathon": "Featured Project",
+    "youtubeUrl": "https://youtu.be/U5va0qWt1Dc?si=3xpzYX8EiTl4M-EZ",
+    "youtubeId": "U5va0qWt1Dc",
+    "tags": [
+      "JavaScript (ES6+)",
+      "HTML5 Canvas API",
+      "CSS3 Flex/Grid",
+      "Isolated Sandboxing",
+      "GitHub Pages CI/CD"
+    ],
+    "demoUrl": "https://prashanth-karanam.github.io/CodeCanvas/",
+    "repoUrl": "https://github.com/prashanth-karanam/CodeCanvas"
   },
   {
-    id: "proj-codecanvas",
-    title: "CodeCanvas — Agentic AI-Native Browser IDE",
-    subtitle: "Zero-install agentic AI-native IDE co-built with GPT-5.6 featuring real-time auto-debugging and CyberBoard visual planning.",
-    summary: "OpenAI Build Week 2026 (7-Day Sprint Build): A zero-latency, browser-native AI IDE unifying intelligent code generation, automatic error diagnostics, visual architectural whiteboard planning, and instant hot-reloading rendering.",
-    about: "CodeCanvas unifies intelligent code generation, real-time visual architectural planning, and zero-latency browser rendering into a single, cohesive AI-Native Workspace. Built in 7 days for OpenAI Build Week 2026 and powered by GPT-5.6 & Codex, CodeCanvas acts as an agentic partner that auto-diagnoses console errors and constructs web applications directly inside the browser.",
-    usecase: "Instant browser-native software prototyping, agentic AI auto-debugging, visual architecture sketchpad, and zero-setup web application development.",
-    chronologyStep: "OpenAI Build Week (7-Day Build)",
-    date: "2026-07-21",
-    lastCommitDate: "2026-07-21",
-    lastCommitMsg: "docs: update README for OpenAI Build Week with GPT-5.6, Antigravity & zero-download highlights",
-    category: "OpenAI Build Week",
-    image: "codecanvas_thumbnail.jpg",
-    engineeringMethod: "Agentic AI Engineering & GPT-5.6 Co-Creation",
-    engineeringLabel: "🚀 OpenAI Build Week (7-Day Build)",
-    hackathon: "OpenAI Build Week 2026 Submission 01",
-    youtubeUrl: "https://youtu.be/U5va0qWt1Dc?si=3xpzYX8EiTl4M-EZ",
-    youtubeId: "U5va0qWt1Dc",
-    tags: ["React 19", "GPT-5.6", "Vite", "Monaco Editor", "TailwindCSS", "TypeScript", "WebAssembly"],
-    demoUrl: "https://prashanth-karanam.github.io/CodeCanvas/",
-    repoUrl: "https://github.com/prashanth-karanam/CodeCanvas"
+    "id": "proj-luna-assistant",
+    "title": "Luna Voice Assistant — Android Overlay Client",
+    "subtitle": "Experimental Android client featuring a minimalist Jetpack Compose overlay UI and automated CI/CD APK builds.",
+    "summary": "An Android client exploring non-intrusive overlay UI and background service execution with automated GitHub Actions CI/CD APK generation.",
+    "about": "Luna Voice Assistant explores unobtrusive on-device voice interaction on Android. Built with Kotlin and Jetpack Compose, it implements a lightweight overlay window enabling quick interactions without taking over active foreground apps.",
+    "usecase": "Hands-free mobile overlay controls, background service management, and automated continuous Android builds.",
+    "chronologyStep": "Mobile & Systems Engineering",
+    "date": "2026-08-19",
+    "lastCommitDate": "2026-08-19",
+    "lastCommitMsg": "docs: add professional engineering README for Luna Voice Assistant",
+    "category": "Mobile Systems",
+    "image": "luna_thumbnail.jpg",
+    "engineeringMethod": "Android Native Engineering",
+    "engineeringLabel": "Mobile Engineering",
+    "hackathon": "Featured Project",
+    "youtubeUrl": "",
+    "youtubeId": "",
+    "tags": [
+      "Kotlin",
+      "Jetpack Compose",
+      "Material 3",
+      "Android SDK 34",
+      "Foreground Services",
+      "GitHub Actions"
+    ],
+    "demoUrl": "https://github.com/prashanth-karanam/luna-assistant",
+    "repoUrl": "https://github.com/prashanth-karanam/luna-assistant"
   },
   {
-    id: "proj-luna-v3",
-    title: "Luna v3 — Local OS Intelligence & Automation Engine",
-    subtitle: "100% offline 3B local AI assistant co-built for OpenAI Build Week featuring Playwright CDP browser driving and RAM optimization.",
-    summary: "OpenAI Build Week 2026 (7-Day Sprint Build): A 100% offline 3B parameter local AI OS operating alongside a Python backend driver to execute RAM optimization, Playwright CDP browser driving, process watchdog, and workstation security — zero cloud data leaks.",
-    about: "Luna v3 represents my second official submission for OpenAI Build Week 2026. Built in 7 days alongside CodeCanvas, Luna v3 connects local 3B LLM inference (via Ollama) with a high-performance Python/PowerShell backend driver. It allows users to control their Windows OS hands-free — launching browser windows, searching YouTube, managing RAM thermals, and locking workstations securely offline.",
-    usecase: "Hands-free browser driving, hands-free media playback, RAM process watchdog, system diagnostics, and 100% offline privacy control.",
-    chronologyStep: "OpenAI Build Week (7-Day Build)",
-    date: "2026-07-31",
-    lastCommitDate: "2026-07-31",
-    lastCommitMsg: "feat: Luna v3 OpenAI Build Week release with Playwright CDP & RAM watchdog",
-    category: "OpenAI Build Week",
-    image: "luna_thumbnail.jpg",
-    engineeringMethod: "Agentic AI Engineering & Python Driver Systems",
-    engineeringLabel: "🚀 OpenAI Build Week (7-Day Build)",
-    hackathon: "OpenAI Build Week 2026 Submission 02",
-    youtubeUrl: "https://youtu.be/PIV8i_lnrgU?si=BHkIlId4xUnj-3FC",
-    youtubeId: "PIV8i_lnrgU",
-    tags: ["Ollama 3B", "Playwright CDP", "Python Backend", "ASUS ROG Power", "System Automation", "OpenAI Build Week", "Win32 IPC"],
-    demoUrl: "https://github.com/prashanth-karanam/Luna-V3",
-    repoUrl: "https://github.com/prashanth-karanam/Luna-V3"
-  },
-  {
-    id: "proj-srm-unblocker",
-    title: "SRM Wi-Fi Unblocker — MASQUE TLS-443 Stealth Tunnel Engine",
-    subtitle: "1-click automated network firewall bypass engine for university Wi-Fi game blocks and port restrictions.",
-    summary: "First Stealth Systems & Networking Project: A specialized low-latency networking utility engineered to bypass institutional Deep Packet Inspection (DPI) and university firewall blocks via MASQUE HTTP/3 stealth tunneling over TLS Port 443.",
-    about: "SRM Wi-Fi Unblocker is a specialized network utility engineered to solve institutional network blocking across university campus networks. Conventional VPN handshakes (WireGuard/OpenVPN) fail on SRMIST campus firewalls because non-standard UDP ports and VPN handshakes are actively dropped. This engine encapsulates game packets inside MASQUE (HTTP/3 over TLS Port 443) stealth tunnels, disguising game server traffic as standard HTTPS web browsing with sub-15ms latency.",
-    usecase: "Bypassing university Wi-Fi gaming blocks (Free Fire, Genshin, Steam), unblocking restricted developer resources, and zero-latency campus stealth networking.",
-    chronologyStep: "First Stealth Networking Project",
-    date: "2026-08-07",
-    lastCommitDate: "2026-08-07",
-    lastCommitMsg: "feat: add SRM Wi-Fi Game & Site Unblocker engine with MASQUE HTTP/3 stealth tunneling",
-    category: "Stealth Systems & Networking",
-    image: "srm_unblocker_yt_thumbnail.png",
-    engineeringMethod: "Hand-Crafted Core Networking Architecture",
-    engineeringLabel: "⚡ Stealth Systems & Networking",
-    hackathon: "Open-Source Stealth Tool",
-    youtubeUrl: "",
-    youtubeId: "",
-    tags: ["PowerShell", "Batch / CMD", "MASQUE Protocol", "TLS 443 Tunneling", "Cloudflare WARP", "Stealth Networking", "DPI Circumvention"],
-    demoUrl: "https://github.com/prashanth-karanam/srm-wifi-unblocker",
-    repoUrl: "https://github.com/prashanth-karanam/srm-wifi-unblocker"
-  },
-  {
-    id: "proj-eclipse-stream",
-    title: "Eclipse Stream — First Public Working Media Streaming Platform",
-    subtitle: "Self-hosted personal cinema streaming interface with AI recommendations & real-time tracker.",
-    summary: "First Public Working Media Streaming Project: An ultra-responsive self-hosted personal cinema platform uniting fluid video delivery, intelligent movie metadata curation, ambient player cinematics, and real-time watch tracking.",
-    about: "Eclipse Stream (eclipse-stream & CinePulse) represents my first fully deployed, public working media streaming project. Built to deliver a personal cinema experience, it features instant movie metadata aggregation, custom watchlist management, ambient backlight synchronization, and responsive multi-device video delivery.",
-    usecase: "Self-hosted cinema streaming, automated movie metadata tracking, ambient player cinematics, and multi-device video delivery.",
-    chronologyStep: "First Public Working Project",
-    date: "2026-08-08",
-    lastCommitDate: "2026-08-09",
-    lastCommitMsg: "feat: release CinePulse master tracker & Eclipse Stream media engine",
-    category: "Public Media Platforms",
-    image: "eclipse_stream_yt_thumbnail.png",
-    engineeringMethod: "Hand-Crafted Core Web Architecture",
-    engineeringLabel: "🎬 Public Working Project",
-    hackathon: "Public Media Platform",
-    youtubeUrl: "",
-    youtubeId: "",
-    tags: ["JavaScript", "HTML5 Video", "Metadata API", "CSS Glassmorphism", "Responsive Web", "CinePulse Tracker"],
-    demoUrl: "https://github.com/prashanth-karanam/eclipse-stream",
-    repoUrl: "https://github.com/prashanth-karanam/eclipse-stream"
-  },
-  {
-    id: "proj-public-ide",
-    title: "Public-IDE — Gen-Z Python Learning IDE & Prompt System",
-    subtitle: "Beginner-friendly Python learning site with built-in ChatGPT prompts and gamified leveling.",
-    summary: "Pioneer Learning IDE Project: A beginner-friendly interactive website designed to train new Python learners with built-in ChatGPT prompts and a crispy Gen-Z leveling system.",
-    about: "Public-IDE was created to bridge the gap between beginner programmers and AI copilots. It features a curated prompt bank for ChatGPT, structured Python tutorials, interactive code execution snippets, and a gamified level-up system tailored for Gen-Z learners.",
-    usecase: "Interactive Python learning, AI prompt engineering education, and gamified coding progression.",
-    chronologyStep: "Pioneer Learning IDE",
-    date: "2026-04-15",
-    lastCommitDate: "2026-04-16",
-    lastCommitMsg: "feat: beginner friendly python prompt system and leveling engine",
-    category: "Pioneer IDE Projects",
-    image: "public_ide_yt_thumbnail.png",
-    engineeringMethod: "Hand-Crafted Interactive Web Tool",
-    engineeringLabel: "🛠️ Pioneer Project",
-    hackathon: "Educational AI Tool",
-    youtubeUrl: "",
-    youtubeId: "",
-    tags: ["Python Learning", "ChatGPT Prompts", "Gamified Coding", "Gen-Z UI", "JavaScript"],
-    demoUrl: "https://github.com/prashanth-karanam/Public-IDE",
-    repoUrl: "https://github.com/prashanth-karanam/Public-IDE"
+    "id": "proj-srm-companion",
+    "title": "SRM Companion — Cross-Platform Campus Utility",
+    "subtitle": "Cross-platform mobile and web application engineered with Capacitor, timetable sync, and an isolated microservice bridge.",
+    "summary": "An open community campus tool engineered to streamline student schedules, calendar syncing, and background notification workflows.",
+    "about": "SRM Companion combines a native-packaged Capacitor frontend with local schedule synchronization (.ics parser) and an optional containerized Node.js daemon for session-isolated WhatsApp notifications.",
+    "usecase": "Campus timetable sync, academic schedule organization, offline student utilities, and containerized session bridges.",
+    "chronologyStep": "Campus Utility Project",
+    "date": "2026-09-25",
+    "lastCommitDate": "2026-09-25",
+    "lastCommitMsg": "docs: refactor README for community open-source APK installation and build transparency",
+    "category": "Cross-Platform Mobile",
+    "image": "srm_unblocker_yt_thumbnail.png",
+    "engineeringMethod": "Full-Stack Mobile Architecture",
+    "engineeringLabel": "Cross-Platform Systems",
+    "hackathon": "Campus Utility Tool",
+    "youtubeUrl": "",
+    "youtubeId": "",
+    "tags": [
+      "Capacitor 8.5",
+      "Node.js",
+      "Docker",
+      "iCalendar (.ics)",
+      "WebSockets",
+      "Android APK"
+    ],
+    "demoUrl": "https://github.com/prashanth-karanam/srm-companion",
+    "repoUrl": "https://github.com/prashanth-karanam/srm-companion"
   }
-];
+]
+;
 
 function generateProceduralGraphic(title, color1, color2) {
     const svg = `
@@ -204,8 +158,7 @@ class ProjectStore {
 
     enforceDateFix() {
         this.projects.forEach(p => {
-            if (p.id === 'proj-luna-brain') p.date = '2026-08-09';
-            if (p.id === 'proj-codecanvas') p.date = '2026-07-21';
+            
         });
     }
 
@@ -1280,4 +1233,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initKineticHero();
 });
+
 
